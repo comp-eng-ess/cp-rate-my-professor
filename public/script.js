@@ -1,6 +1,13 @@
-import { initializeApp} from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, addDoc , getDoc} from "firebase/firestore"; 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB6ssZ2hOfOx-UoUJEVGBjVJd7pQylAtLM",
@@ -14,10 +21,28 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-document.getElementById("professor-search").onchange = async () => {
-  const searchQuery = document.getElementById("professor-search").value;
+async function fetchTeacherName(searchQuery) {
+  const teachersRef = collection(db, "professor-names");
+  const querySnapshot = await getDocs(teachersRef);
+  console.log(querySnapshot.docs.map((doc) => doc.data()));
+  let teachersDiv = "";
+  let teachersOption = "";
+  querySnapshot.docs.map((doc) => {
+    teachersDiv += `<div>${doc.data()["firstname"]} ${
+      doc.data()["lastname"]
+    }</div>`;
+    teachersOption += `<option value="${doc.data()["firstname"]} ${
+      doc.data()["lastname"]
+    }">${doc.data()["firstname"]} ${doc.data()["lastname"]}</option>`;
+  });
 
-  console.log(searchQuery);
-  const docRef = await getDoc(collection(db, "professor-names"))
-  console.log(docRef)
+  document.getElementById("teacher-names").innerHTML = teachersDiv;
+  document.getElementById("professor-options").innerHTML = teachersOption;
+}
+
+document.getElementById("professor-search").onchange = () => {
+  const searchQuery = document.getElementById("professor-search").value;
+  fetchTeacherName(searchQuery);
 };
+
+fetchTeacherName("");
