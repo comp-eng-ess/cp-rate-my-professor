@@ -12,14 +12,15 @@ body {
 }
 .nav-bar {
   display: flex;
+  width:100%;
+  background-color: #DCDCDC;
 }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background-color: #f8f8ff;
+  background-color: #DCDCDC;
 }
 
 li {
@@ -32,7 +33,6 @@ li a {
   color: #000000;
   text-align: center;
   text-decoration: none;
-  padding: 14px 16px;
 
 }
 
