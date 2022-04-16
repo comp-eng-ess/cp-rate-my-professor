@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+body {
+  font-family: Poppins;
+}
+
+#teacher-names {
+  display: flex;
+  gap: 10px;
+  gap: 10px 20px; /* row-gap column gap */
+  row-gap: 10px;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  flex-grow: 0; /* do not grow   - initial value: 0 */
+  flex-shrink: 0; /* do not shrink - initial value: 1 */
+  flex-basis: 25em; /* width/height  - initial value: auto */
+  margin: auto;
+  padding: 10px;
+}
+#teacher-names > #teacher {
+  display: flex;
+  border-style: solid;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
