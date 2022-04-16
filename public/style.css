@@ -47,7 +47,7 @@ li a:hover {
   text-align: center;
 }
 
-.teacher-names {
+#teacher-names {
   display: flex;
 
   row-gap: 10px;
@@ -66,7 +66,7 @@ li a:hover {
   justify-content: center;
   align-items: center;
 }
-.teacher-names > div {
+#teacher-names > * {
   display: flex;
   flex: 0 0 250px;
   border: 1px solid red;
