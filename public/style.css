@@ -66,7 +66,7 @@ li a:hover {
   justify-content: center;
   align-items: center;
 }
-#teacher-names > * {
+#teacher-names div {
   display: flex;
   flex: 0 0 250px;
   border: 1px solid red;
@@ -75,7 +75,7 @@ li a:hover {
   text-align: center;
 }
 
-.teacher-names > div:hover {
+#teacher-names div:hover {
   background-color: aqua;
 }
 #professor-search {
