@@ -1,1 +1,1 @@
-# course-rating
+# cp-rate-my-professor
