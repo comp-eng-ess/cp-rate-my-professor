@@ -7,41 +7,57 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>CP Rate My Professor</h1>
-    <label>
-      choose teacher from this list:
-      <input list="teachers" name="teacher-name" />
-    </label>
-    <datalist id="teachers">
-      <option value="a1"></option>
-      <option value="a2"></option>
-      <option value="a3"></option>
-      <option value="a4"></option>
-      <option value="a5"></option>
-      <option value="a6"></option>
-      <option value="a7"></option>
-      <option value="a8"></option>
-      <option value="a9"></option>
-      <option value="a10"></option>
-      <option value="a11"></option>
-    </datalist>
+    <div id="main">
+      <div class="nav-bar">
+        <ul>
+          <li id="logo">
+            <a href="index.html"><img src="" /></a>
+          </li>
+          <li id="link_1"><a href="index.html">Home</a></li>
+          <li id="link_2"><a href="">About</a></li>
+        </ul>
+      </div>
 
-    <div id="teacher-names">
-      <div id="teacher">First Last 1</div>
-      <div id="teacher">First Last 2</div>
-      <div id="teacher">First Last 3</div>
-      <div id="teacher">First Last 4</div>
-      <div id="teacher">First Last 5</div>
-      <div id="teacher">First Last 6</div>
-      <div id="teacher">First Last 7</div>
-      <div id="teacher">First Last 8</div>
-      <div id="teacher">First Last 9</div>
-      <div id="teacher">First Last 10</div>
-      <div id="teacher">First Last 11</div>
-      <div id="teacher">First Last 12</div>
-      <div id="teacher">First Last 13</div>
-      <div id="teacher">First Last 14</div>
-      <div id="teacher">First Last 15</div>
+      <h1>CP Rate My Professor</h1>
+      <div id="application">
+        <div>Professor List</div>
+        <div id="input-field">
+          <input
+            id="professor-search"
+            name="professor-name"
+          />
+          <!-- <datalist id="professors">
+            <option value="a1"></option>
+            <option value="a2"></option>
+            <option value="a3"></option>
+            <option value="b3"></option>
+            <option value="c3"></option>
+            <option value="d1"></option>
+            <option value="d2"></option>
+          </datalist> -->
+        </div>
+
+        <div class="teacher-names">
+          <div>First Last 0</div>
+          <div>First Last 1</div>
+          <div>First Last 2</div>
+          <div>First Last 3</div>
+          <div>First Last 4</div>
+          <div>First Last 5</div>
+          <div>First Last 6</div>
+          <div>First Last 7</div>
+          <div>First Last 8</div>
+          <div>First Last 9</div>
+          <div>First Last 10</div>
+          <div>First Last 11</div>
+          <div>First Last 12</div>
+          <div>First Last 13</div>
+          <div>First Last 14</div>
+          <div>First Last 15</div>
+          <div>First Last 15</div>
+        </div>
+      </div>
     </div>
   </body>
+  <script src="script.js"></script>
 </html>

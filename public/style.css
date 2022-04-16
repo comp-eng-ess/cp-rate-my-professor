@@ -1,27 +1,83 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 body {
   font-family: Poppins;
+  background: #ffffff;
 }
 
-#teacher-names {
+#main {
+  /* padding: 5%; */
+}
+#application {
+  padding: 5%;
+}
+.nav-bar {
   display: flex;
-  gap: 10px;
-  gap: 10px 20px; /* row-gap column gap */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f8f8ff;
+}
+
+li {
+  float: left;
+  display: inline;
+}
+
+li a {
+  display: block;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 16px;
+
+}
+
+li a:hover {
+  background-color: #ffb6c1;
+}
+
+
+#input-field {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.teacher-names {
+  display: flex;
+
   row-gap: 10px;
   column-gap: 20px;
+
   flex-wrap: wrap;
   flex-grow: 0; /* do not grow   - initial value: 0 */
   flex-shrink: 0; /* do not shrink - initial value: 1 */
   flex-basis: 25em; /* width/height  - initial value: auto */
+  min-width: 25em;
   margin: auto;
+
   padding: 10px;
+  flex-basis: 33%;
+
+  justify-content: center;
+  align-items: center;
 }
-#teacher-names > #teacher {
+.teacher-names > div {
   display: flex;
-  border-style: solid;
-  flex: 1;
+  flex: 0 0 250px;
+  border: 1px solid red;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
 
+.teacher-names > div:hover {
+  background-color: aqua;
+}
+#professor-search {
+  width: 50%;
 }
