@@ -28,12 +28,10 @@ async function fetchTeacherName(searchQuery) {
   let teachersDiv = "";
   let teachersOption = "";
   querySnapshot.docs.map((doc) => {
-    teachersDiv += `<div>${doc.data()["firstname"]} ${
-      doc.data()["lastname"]
-    }</div>`;
-    teachersOption += `<option value="${doc.data()["firstname"]} ${
-      doc.data()["lastname"]
-    }">${doc.data()["firstname"]} ${doc.data()["lastname"]}</option>`;
+    teachersDiv += `<div>${doc.data()["firstname"]} ${doc.data()["lastname"]
+      }</div>`;
+    teachersOption += `<option value="${doc.data()["firstname"]} ${doc.data()["lastname"]
+      }">${doc.data()["firstname"]} ${doc.data()["lastname"]}</option>`;
   });
 
   document.getElementById("teacher-names").innerHTML = teachersDiv;
@@ -44,5 +42,14 @@ document.getElementById("professor-search").onchange = () => {
   const searchQuery = document.getElementById("professor-search").value;
   fetchTeacherName(searchQuery);
 };
+const colorSwitch = document.getElementById('input-toggle-mode');
+colorSwitch.addEventListener('click', checkMode);
+function checkMode() {
+  console.log('check');
+}
+function changeMode() {
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+}
 
 fetchTeacherName("");
