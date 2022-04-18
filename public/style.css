@@ -6,7 +6,6 @@
   --clr-base: #ffffff;
   --clr-primary: #ffb6c1;
   --clr-gray: #310621;
-  --clr-hover: #f08ea8;
 }
 
 .dark-mode {
@@ -14,7 +13,6 @@
   --clr-base: black;
   --clr-primary: #f4a7bb;
   --clr-gray: #f7e8f2;
-  --clr-hover: #e77291;
 }
 
 body {
@@ -119,7 +117,7 @@ li a {
 }
 
 li a:hover {
-  background-color: var(--clr-hover);
+  background-color: var(--clr-primary);
 }
 
 #input-field {
@@ -158,13 +156,8 @@ h1 .h1color {
 #teacher-names div {
   display: flex;
   border-radius: 10px;
-<<<<<<< HEAD
-  flex: 0 0 250px;
-  border: 2px solid var(--clr-primary);
-=======
   padding: 10px;
   border: 1px solid var(--clr-primary);
->>>>>>> refs/remotes/origin/main
   background: var(--clr-base);
   justify-content: center;
   align-items: center;
@@ -173,7 +166,7 @@ h1 .h1color {
 }
 
 #teacher-names div:hover {
-  background-color: var(--clr-hover);
+  background-color: var(--clr-gray);
 }
 
 #professor-search {
