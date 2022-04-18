@@ -6,6 +6,7 @@
   --clr-base: #ffffff;
   --clr-primary: #ffb6c1;
   --clr-gray: #310621;
+  --clr-hover: #f08ea8;
 }
 
 .dark-mode {
@@ -13,6 +14,7 @@
   --clr-base: black;
   --clr-primary: #f4a7bb;
   --clr-gray: #f7e8f2;
+  --clr-hover: #e77291;
 }
 
 body {
@@ -117,7 +119,7 @@ li a {
 }
 
 li a:hover {
-  background-color: var(--clr-primary);
+  background-color: var(--clr-hover);
 }
 
 #input-field {
@@ -166,7 +168,7 @@ h1 .h1color {
 }
 
 #teacher-names div:hover {
-  background-color: var(--clr-gray);
+  background-color: var(--clr-hover);
 }
 
 #professor-search {
