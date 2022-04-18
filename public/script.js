@@ -44,6 +44,11 @@ document.getElementById("professor-search").onchange = () => {
   const searchQuery = document.getElementById("professor-search").value;
   fetchTeacherName(searchQuery);
 };
+document.getElementById("search-button").onclick = () => {
+  const searchQuery = document.getElementById("professor-search").value;
+  fetchTeacherName(searchQuery);
+}
+
 const colorSwitch = document.getElementById("input-toggle-mode");
 colorSwitch.addEventListener("click", checkMode);
 function checkMode() {
