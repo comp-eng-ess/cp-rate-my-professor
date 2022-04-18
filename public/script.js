@@ -40,6 +40,8 @@ async function fetchTeacherName(searchQuery) {
   document.getElementById("professor-options").innerHTML = teachersOption;
 }
 
+fetchTeacherName("");
+
 document.getElementById("professor-search").onchange = () => {
   const searchQuery = document.getElementById("professor-search").value;
   fetchTeacherName(searchQuery);
@@ -47,17 +49,9 @@ document.getElementById("professor-search").onchange = () => {
 document.getElementById("search-button").onclick = () => {
   const searchQuery = document.getElementById("professor-search").value;
   fetchTeacherName(searchQuery);
-}
-
-const colorSwitch = document.getElementById("input-toggle-mode");
-colorSwitch.addEventListener("click", checkMode);
-function checkMode() {
-  console.log("check");
-}
+};
 
 document.getElementById("input-toggle-mode").onclick = () => {
   var element = document.body;
   element.classList.toggle("dark-mode");
 };
-
-fetchTeacherName("");
