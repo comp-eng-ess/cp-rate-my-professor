@@ -95,6 +95,12 @@ nav ul li a::before{
 nav ul li a:hover::before{
   width: 100%;
 }
+
+.application{
+  width: 80%;
+  margin: 0 auto;
+}
+
 /* .wrapper-toggle-mode {
   display: flex;
   justify-content: flex-end;
@@ -144,45 +150,6 @@ nav ul li a:hover::before{
 
 #input-toggle-mode {
   display: none;
-}
-
-/* .nav-bar {
-  display: flex;
-  width: 100%;
-  margin: 0%;
-  background-color: var(--clr-primary);
-} */
-
-/* .material-icons {
-  font-family: "Material Icons";
-  font-size: 40px;
-  padding: 0em 0.2em;
-  align-items: center;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0%;
-  padding: 0;
-  background-color: var(--clr-primary);
-}
-
-li {
-  float: left;
-  display: inline;
-  color: var(--clr-base);
-}
-
-li a {
-  padding: 12px;
-  display: block;
-  color: var(--clr-base);
-  text-align: center;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: var(--clr-hover);
 }
 
 #input-field {
