@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CP Rate My Professor</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <div id="main">
-      <div class="nav-bar">
-        <ul>
-          <li id="logo">
-            <a href="index.html"><img src="" /></a>
-          </li>
-          <li id="link_1"><a href="index.html">Home</a></li>
-          <li id="link_2"><a href="">About</a></li>
-        </ul>
-      </div>
-
-      <!-- dark-mode-toggle -->
-      <div class="wrapper-toggle-mode">
-        <input type="checkbox" id="input-toggle-mode" />
-        <label for="input-toggle-mode" class="color-switch">
-          <div class="slider-toggle-mode"></div>
-        </label>
-      </div>
-
-      <h1>CP Rate<span class="h1color"> My Professor</span></h1>
-      <div id="application">
-        <div>Professor List</div>
-        <div id="input-field">
-          <input
-            id="professor-search"
-            list="professor-options"
-            name="professor-name"
+    <!-- top navigation bar -->
+    <header>
+      <section class="nav-container">
+        <a href="index.html">
+          <img
+            class="logo"
+            alt="logo"
+            src="https://cdn-icons.flaticon.com/png/512/685/premium/685342.png?token=exp=1650363113~hmac=f99679b977ccc4050ce136a0d06482a7"
           />
-          <div id="search-button" class="material-icons">search</div>
-          <datalist id="professor-options"> </datalist>
-        </div>
+        </a>
 
-        <div id="teacher-names"></div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/professor.html">Professor</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+            <li><a href="pages/about.html">About</a></li>
+          </ul>
+        </nav>
+
+        <!-- <div class="wrapper-toggle-mode">
+          <input type="checkbox" id="input-toggle-mode" />
+          <label for="input-toggle-mode" class="color-switch">
+            <div class="slider-toggle-mode"></div>
+          </label>
+        </div> -->
+      </section>
+    </header>
+
+    <!-- application(search bar) -->
+    <section class="application">
+      <div class="search">
+        <h1>CP Rate My <span>Professor!</span></h1>
+        <input name="professor-name" placeholder="Search professor name" />
+        <button type="submit">
+          <span class="material-icons"> search </span>
+        </button>
       </div>
-    </div>
+
+      <datalist id="professor-options"> </datalist>
+      <div id="teacher-names"></div>
+    </section>
   </body>
   <script type="module" src="./script.js"></script>
 </html>
