@@ -1,41 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CP Rate My Professor</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <!-- top navigation bar -->
-    <section>
-      <nav>
-        <ul>
-          <li><a href="index.html"><img alt="logo" src=""/></a></li>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="">About</a></li>
-        </ul>
-      <div class="wrapper-toggle-mode">
-        <input type="checkbox" id="input-toggle-mode" />
-        <label for="input-toggle-mode" class="color-switch">
-          <div class="slider-toggle-mode"></div>
-        </label>
-      </div>
+    <header>
+      <section class="nav-container">
+        <a href="index.html">
+          <img
+            class="logo"
+            alt="logo"
+            src="https://cdn-icons.flaticon.com/png/512/685/premium/685342.png?token=exp=1650363113~hmac=f99679b977ccc4050ce136a0d06482a7"
+          />
+        </a>
+
+        <nav>
+          <ul>
+            <li><a href="index.html">Professor</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+            <li><a href="pages/about.html">About</a></li>
+          </ul>
+
+          <!-- dark-mode-toggle -->
+          <!-- <div class="wrapper-toggle-mode">
+          <input type="checkbox" id="input-toggle-mode" />
+          <label for="input-toggle-mode" class="color-switch">
+            <div class="slider-toggle-mode"></div>
+          </label>
+        </div> -->
         </nav>
       </section>
+    </header>
 
-      <!-- application(search bar) -->
-      <section>
+    <!-- application(search bar) -->
+    <!-- <section>
       <h1>CP Rate <span>My Professor</span></h1>
-          <input id="professor-search" list="professor-options" name="professor-name"/>
-      </section>
+      <input
+        id="professor-search"
+        list="professor-options"
+        name="professor-name"
+      />
+    </section> -->
 
-      <!-- results (professor item appear!) -->
-      <section>
-        <datalist id="professor-options"> </datalist>
-        <div id="teacher-names"></div>
-      </section>
+    <!-- results (professor item appear!) -->
+    <!-- <section>
+      <datalist id="professor-options"> </datalist>
+      <div id="teacher-names"></div>
+    </section> -->
   </body>
   <script type="module" src="./script.js"></script>
 </html>
