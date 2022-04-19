@@ -8,41 +8,34 @@
   </head>
 
   <body>
-    <div id="main">
-      <div class="nav-bar">
+    <!-- top navigation bar -->
+    <section>
+      <nav>
         <ul>
-          <li id="logo">
-            <a href="index.html"><img src="" /></a>
-          </li>
-          <li id="link_1"><a href="index.html">Home</a></li>
-          <li id="link_2"><a href="">About</a></li>
+          <li><a href="index.html"><img alt="logo" src=""/></a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="">About</a></li>
         </ul>
-      </div>
- 
-      <!-- dark-mode-toggle -->
       <div class="wrapper-toggle-mode">
         <input type="checkbox" id="input-toggle-mode" />
         <label for="input-toggle-mode" class="color-switch">
           <div class="slider-toggle-mode"></div>
         </label>
       </div>
+        </nav>
+      </section>
 
-      <h1>CP Rate<span class="h1color"> My Professor</span></h1>
-      <div id="application">
-        <div>Professor List</div>
-        <div id="input-field">
-          <input
-            id="professor-search"
-            list="professor-options"
-            name="professor-name"
-          />
-          <div id="search-button" class="material-icons">search</div>
-          <datalist id="professor-options"> </datalist>
-        </div>
+      <!-- application(search bar) -->
+      <section>
+      <h1>CP Rate <span>My Professor</span></h1>
+          <input id="professor-search" list="professor-options" name="professor-name"/>
+      </section>
 
+      <!-- results (professor item appear!) -->
+      <section>
+        <datalist id="professor-options"> </datalist>
         <div id="teacher-names"></div>
-      </div>
-    </div>
+      </section>
   </body>
   <script type="module" src="./script.js"></script>
 </html>
