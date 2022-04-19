@@ -101,5 +101,19 @@ const genTeacherPage = async (id) => {
     genHomePage();
   };
 };
+const genContactPage = () => {
+  document.getElementById("application").innerHTML = `
+  <div>Placeholder for contact page</div>
+  `;
+};
+const genAboutPage = () => {
+  document.getElementById("application").innerHTML = `
+  <div>Placeholder for about page</div>
+  `;
+};
+
+document.getElementById("go-home").onclick = genHomePage;
+document.getElementById("go-contact").onclick = genContactPage;
+document.getElementById("go-about").onclick = genAboutPage;
 
 genHomePage();
