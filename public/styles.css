@@ -42,9 +42,9 @@ header::after{
 
 .nav-container .logo{
   float: left;
-  padding: 10px 0;
-  width: 40px;
-  height: 40px;
+  margin: 0;
+  padding: 0;
+  height: 60px;
 }
 
 nav{
