@@ -55,7 +55,7 @@ async function fetchTeacherName(searchQuery) {
 let genHomePage = () => {
   document.getElementById("application").innerHTML = `
       <div class="search">
-        <h1>CP Rate My <span>Professor!</span></h1>
+        <h1 id="page-title">CP Rate My <span>Professor!</span></h1>
         <input name="professor-name" id="professor-search" placeholder="Search professor name" />
       </div>
       <datalist id="professor-options"> </datalist>
@@ -107,8 +107,47 @@ const genAboutPage = () => {
   `;
 };
 
+const genCommentPage = (id, professorName) => {
+  document.getElementById("application").innerHTML = `
+  <button id="back-button">
+    Go Back
+  </button>
+  <h2>Adding comment for ${professorName}</h2>
+  <div id="comment-form">
+    <form>
+      <div>
+        Score
+        <input type="text" />
+      </div>
+      <div>
+        Course
+        <input type="text" id="course" name="course" value="" />
+      </div>
+      <div>
+        <label for="section">section </label>
+        <input type="text" id="section" name="section" value="" />
+      </div>
+      <div>
+        <label for="year">year </label>
+        <input type="text" id="year" name="year" value="" />
+      </div>
+      <div>
+        <label for="semester">semester</label>
+        <input type="text" id="semester" name="semester" value="" />
+      </div>
+      <div>
+        <label for="comment">comment</label>
+        <input type="textarea" />
+      </div>
+      <button id="submit-button">submit</button>
+    </form>
+  </div>
+  `;
+};
+
 document.getElementById("go-home").onclick = genHomePage;
 document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
 genHomePage();
+// genCommentPage(1,"Noppakorn Jiravaranun");

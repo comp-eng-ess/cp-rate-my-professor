@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 :root {
   --clr-background: #eceff1;
@@ -16,48 +16,48 @@
   --clr-hover: #e77291;
 }
 
-body{
-  font-family: 'Poppins', sans-serif;
-  background-color: #FFFFFF;
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
 }
 
 /* Nav bar */
 
-header{
-  background-color: #F6D0DE;
+header {
+  background-color: #f6d0de;
 }
 
-header::after{
-  content: '';
+header::after {
+  content: "";
   display: table;
   clear: both;
 }
 
-.nav-container{
+.nav-container {
   width: 80%;
   margin: 0 auto;
 }
 
-.nav-container .logo{
+.nav-container .logo {
   float: left;
   margin: 0;
   padding: 0;
   height: 60px;
 }
 
-nav{
+nav {
   float: right;
 }
 
-nav ul{
+nav ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-nav ul li{
+nav ul li {
   display: inline-block;
   margin-left: 70px;
   padding-top: 17px;
@@ -65,23 +65,23 @@ nav ul li{
   position: relative;
 }
 
-nav ul li:last-of-type{
+nav ul li:last-of-type {
   margin-right: 0px;
 }
 
-nav ul li a{
+nav ul li a {
   color: #000000;
   text-transform: uppercase;
   text-decoration: none;
   font-size: 14px;
 }
 
-nav ul li a:hover{
-  color: #DD5C8E;
+nav ul li a:hover {
+  color: #dd5c8e;
 }
 
-nav ul li a::before{
-  content: '';
+nav ul li a::before {
+  content: "";
   display: block;
   height: 5px;
   width: 0%;
@@ -93,7 +93,7 @@ nav ul li a::before{
   transition: all ease-in-out 250ms;
 }
 
-nav ul li a:hover::before{
+nav ul li a:hover::before {
   width: 100%;
 }
 
@@ -158,23 +158,23 @@ nav ul li a:hover::before{
 
 /* Content of website */
 
-.application{
+.application {
   width: 80%;
   margin: 0 auto;
 }
 
-.application h1{
+#page-title {
   font-size: 50px;
   color: #000000;
   position: relative;
   top: 20px;
 }
 
-.application h1 span{
-  color: #DD5C8E;
+#page-title span {
+  color: #dd5c8e;
 }
 
-.application input{
+#professor-search {
   position: relative;
   margin-top: 20px;
   height: 40px;
@@ -185,31 +185,30 @@ nav ul li a:hover::before{
   font-size: 14px;
 }
 
-.application input:hover{
+#professor-search:hover {
   transition: all ease-in-out 250ms;
-  border: 2px solid #DD5C8E;
-  
+  border: 2px solid #dd5c8e;
 }
 
-.application input::placeholder{
-  font-family: 'Poppins';
+#professor-search::placeholder {
+  font-family: "Poppins";
 }
 
-.application .search button{
+.application .search button {
   width: 40px;
   height: 40px;
   border-radius: 20px;
   border: none;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
   position: relative;
   left: -48px;
   top: 6px;
 }
 
-.application .search button:hover{
+.application .search button:hover {
   transition: all 250ms;
-  background-color: #F6D0DE;
+  background-color: #f6d0de;
 }
 
 /* result */
@@ -277,7 +276,17 @@ nav ul li a:hover::before{
   transform-style: preserve-3d;
 }
 
-
 #back-button {
   margin-top: 2%;
+}
+
+#comment-form {
+  display: flex;
+
+  margin: 10%;
+  padding: 5%;
+}
+
+#submit-button {
+  margin-top: 1em;
 }
