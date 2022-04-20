@@ -63,8 +63,6 @@ let genHomePage = () => {
       `;
   document.getElementById("professor-search").oninput = () =>
     fetchTeacherName(document.getElementById("professor-search").value);
-  document.getElementById("search-button").onclick = () =>
-    fetchTeacherName(document.getElementById("professor-search").value);
   fetchTeacherName("");
   addProfOnClick();
 };
