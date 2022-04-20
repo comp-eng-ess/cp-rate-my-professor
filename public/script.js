@@ -28,7 +28,12 @@ async function fetchTeacherName(searchQuery) {
   // console.log(querySnapshot.docs.map((doc) => doc.data()));
   let professorsDiv = "";
   let professorOption = "";
-  querySnapshot.docs.map((doc) => {
+  let filteredData = querySnapshot.docs.filter((doc) => {
+    return (doc.data().firstname + " " + doc.data().lastname).includes(
+      searchQuery
+    );
+  });
+  filteredData.map((doc) => {
     professorsDiv += `<div class="professor-block" id=${doc.id}>${
       doc.data()["firstname"]
     } ${doc.data()["lastname"]}</div>`;
@@ -52,22 +57,12 @@ let genHomePage = () => {
       <div class="search">
         <h1>CP Rate My <span>Professor!</span></h1>
         <input name="professor-name" id="professor-search" placeholder="Search professor name" />
-        <button type="submit" id="search-button">
-          <span class="material-icons"> search </span>
-        </button>
       </div>
-
       <datalist id="professor-options"> </datalist>
       <div id="teacher-names"></div>
       `;
-  document.getElementById("professor-search").onchange = () => {
-    const searchQuery = document.getElementById("professor-search").value;
-    fetchTeacherName(searchQuery);
-  };
-  document.getElementById("search-button").onclick = () => {
-    const searchQuery = document.getElementById("professor-search").value;
-    fetchTeacherName(searchQuery);
-  };
+  document.getElementById("professor-search").oninput = () =>
+    fetchTeacherName(document.getElementById("professor-search").value);
   fetchTeacherName("");
   addProfOnClick();
 };
