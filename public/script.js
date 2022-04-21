@@ -9,7 +9,6 @@ import {
   query,
   where,
   doc,
-  arrayUnion,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -96,7 +95,6 @@ const genTeacherPage = async (id) => {
   );
   querySnapshot.docs.map((doc, idx) => {
     let a = doc.data();
-    console.log(a);
     document.getElementById("comment-box").innerHTML += `
     <div class="comment">
       <div class="comment-number">Comment #${idx + 1}</div>
@@ -173,8 +171,8 @@ const genCommentPage = (id, professorName) => {
       r[ele.name] = ele.value;
       return r;
     }, {});
+
     let docRef = collection(db, "professor-names", id, "comments");
-    console.log(result)
     await addDoc(docRef, result);
     genTeacherPage(id);
   };
@@ -186,5 +184,3 @@ document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
 genHomePage();
-// genCommentPage("JGY4AkwuNpRbHK52edaF", "nnn nnn");
-// genTeacherPage("JGY4AkwuNpRbHK52edaF");
