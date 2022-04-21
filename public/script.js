@@ -5,9 +5,11 @@ import {
   addDoc,
   getDoc,
   getDocs,
+  updateDoc,
   query,
   where,
   doc,
+  arrayUnion,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -85,12 +87,27 @@ const genTeacherPage = async (id) => {
     <button id="new-comment-button">
       New comment
     </button>
+    <div id="comment-box">
+    </div>
   </div>
   `;
+  d.data().comments?.map((a, idx) => {
+    document.getElementById("comment-box").innerHTML += `
+    <div class="comment">
+      <div class="comment-number">Comment #${idx + 1}</div>
+      <div>Score ${a.score}</div>
+      <div>Course ${a.course}</div>
+      <div>Section ${a.section}</div>
+      <div>Semester ${a.year}</div>
+      <div>Academic Year ${a.year}</div>
+      <div>Comment ${a.comment}</div>
+    </div>`;
+  });
   document.getElementById("back-button").onclick = () => {
     genHomePage();
   };
   document.getElementById("new-comment-button").onclick = () => {
+    console.log(id)
     genCommentPage(id, d.data().firstname + " " + d.data().lastname);
   };
 };
@@ -143,7 +160,7 @@ const genCommentPage = (id, professorName) => {
     </form>
   </div>
   `;
-  document.getElementById("comment-form").onsubmit = (event) => {
+  document.getElementById("comment-form").onsubmit = async (event) => {
     event.preventDefault();
     let inputs = document
       .getElementById("comment-form")
@@ -153,8 +170,11 @@ const genCommentPage = (id, professorName) => {
       r[ele.name] = ele.value;
       return r;
     }, {});
-
-    console.log(result);
+    let docRef = doc(db, "professor-names", id);
+    await updateDoc(docRef, {
+      comments: arrayUnion(result),
+    });
+    genTeacherPage(id);
   };
 };
 
@@ -164,4 +184,5 @@ document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
 genHomePage();
-// genCommentPage(1, "Noppakorn Jiravaranun");
+// genCommentPage("JGY4AkwuNpRbHK52edaF", "nnn nnn");
+// genTeacherPage("JGY4AkwuNpRbHK52edaF");

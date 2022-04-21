@@ -248,3 +248,15 @@ nav ul li a:hover::before {
   font-weight: bold;
   color: #dd5c8e;
 }
+
+#comment-box {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
+.comment {
+  border: 1px solid red;
+}
