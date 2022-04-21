@@ -91,7 +91,12 @@ const genTeacherPage = async (id) => {
     </div>
   </div>
   `;
-  d.data().comments?.map((a, idx) => {
+  let querySnapshot = await getDocs(
+    collection(db, "professor-names", id, "comments")
+  );
+  querySnapshot.docs.map((doc, idx) => {
+    let a = doc.data();
+    console.log(a);
     document.getElementById("comment-box").innerHTML += `
     <div class="comment">
       <div class="comment-number">Comment #${idx + 1}</div>
@@ -131,7 +136,7 @@ const genCommentPage = (id, professorName) => {
     <form id="comment-form">
       <div>
         Score
-        <input type="text" id="score" name="score"/>
+        <input type="number" id="score" name="score" min="1" max="5"/>
       </div>
       <div>
         Course
@@ -139,15 +144,15 @@ const genCommentPage = (id, professorName) => {
       </div>
       <div>
         <label for="section">section </label>
-        <input type="text" id="section" name="section" value="" />
+        <input type="number" id="section" name="section" value="" />
       </div>
       <div>
         <label for="year">year </label>
-        <input type="text" id="year" name="year" value="" />
+        <input type="number" id="year" name="year" value="" />
       </div>
       <div>
         <label for="semester">semester</label>
-        <input type="text" id="semester" name="semester" value="" />
+        <input type="number" id="semester" name="semester" value="" />
       </div>
       <div>
         <label for="comment">comment</label>
@@ -168,10 +173,8 @@ const genCommentPage = (id, professorName) => {
       r[ele.name] = ele.value;
       return r;
     }, {});
-    let docRef = doc(db, "professor-names", id);
-    await updateDoc(docRef, {
-      comments: arrayUnion(result),
-    });
+    let docRef = collection(db, "professor-names", id, "comments");
+    await addDoc(docRef, result);
     genTeacherPage(id);
   };
 };
