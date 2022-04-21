@@ -34,8 +34,8 @@ async function fetchTeacherName(searchQuery) {
   });
   filteredData.map((doc) => {
     professorsDiv += `<div class="professor-block" id=${doc.id}>${
-      doc.data()["firstname"]
-    } ${doc.data()["lastname"]}</div>`;
+      doc.data().firstname
+    } ${doc.data().lastname}</div>`;
     professorOption += `<option value="${doc.data()["firstname"]} ${
       doc.data()["lastname"]
     }">${doc.data()["firstname"]} ${doc.data()["lastname"]}</option>`;
@@ -46,17 +46,10 @@ async function fetchTeacherName(searchQuery) {
   addProfOnClick();
 }
 
-// document.getElementById("input-toggle-mode").onclick = () => {
-//   var element = document.body;
-//   element.classList.toggle("dark-mode");
-// };
-
 let genHomePage = () => {
   document.getElementById("application").innerHTML = `
-      <div class="search">
-        <h1>CP Rate My <span>Professor!</span></h1>
-        <input name="professor-name" id="professor-search" placeholder="Search professor name" />
-      </div>
+      <h1 id="application-title">CP Rate My <span>Professor!</span></h1>
+      <input name="professor-name" id="professor-search" placeholder="Search professor name" />
       <datalist id="professor-options"> </datalist>
       <div id="teacher-names"></div>
       `;
