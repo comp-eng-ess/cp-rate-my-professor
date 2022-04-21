@@ -25,7 +25,6 @@ const db = getFirestore(app);
 async function fetchTeacherName(searchQuery) {
   const teachersRef = collection(db, "professor-names");
   const querySnapshot = await getDocs(teachersRef);
-  // console.log(querySnapshot.docs.map((doc) => doc.data()));
   let professorsDiv = "";
   let professorOption = "";
   let filteredData = querySnapshot.docs.filter((doc) => {
@@ -108,6 +107,7 @@ const genAboutPage = () => {
 };
 
 document.getElementById("go-home").onclick = genHomePage;
+document.getElementById("logo").onclick = genHomePage;
 document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
