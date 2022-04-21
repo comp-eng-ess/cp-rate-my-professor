@@ -107,7 +107,7 @@ const genTeacherPage = async (id) => {
     genHomePage();
   };
   document.getElementById("new-comment-button").onclick = () => {
-    console.log(id)
+    console.log(id);
     genCommentPage(id, d.data().firstname + " " + d.data().lastname);
   };
 };
@@ -160,6 +160,7 @@ const genCommentPage = (id, professorName) => {
     </form>
   </div>
   `;
+  document.getElementById("back-button").onclick = () => genTeacherPage(id);
   document.getElementById("comment-form").onsubmit = async (event) => {
     event.preventDefault();
     let inputs = document
