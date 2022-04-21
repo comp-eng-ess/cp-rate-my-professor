@@ -8,14 +8,6 @@
   --clr-hover: #f08ea8;
 }
 
-.dark-mode {
-  --clr-background: #1c1c1bff;
-  --clr-base: black;
-  --clr-primary: #f4a7bb;
-  --clr-gray: #f7e8f2;
-  --clr-hover: #e77291;
-}
-
 body {
   font-family: "Poppins", sans-serif;
   background-color: #ffffff;
@@ -23,7 +15,7 @@ body {
   padding: 0;
 }
 
-/* Nav bar */
+/* Navigation bar */
 
 header {
   background-color: #f6d0de;
@@ -35,22 +27,29 @@ header::after {
   clear: both;
 }
 
-.nav-container {
-  width: 80%;
+#navigation-bar {
+  display: flex;
+  width: 90%;
   margin: 0 auto;
 }
 
-.nav-container .logo {
-  float: left;
-  margin: 0;
-  padding: 0;
-  height: 60px;
+.push {
+  margin-left: auto;
 }
 
-nav {
-  float: right;
+#nav-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-
+.nav-button {
+  margin: 10%;
+}
+.nav-button:hover {
+  color: #dd5c8e;
+}
+/*
 nav ul {
   margin: 0;
   padding: 0;
@@ -95,94 +94,34 @@ nav ul li a::before {
 
 nav ul li a:hover::before {
   width: 100%;
-}
+} */
 
-/* .wrapper-toggle-mode {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 1.5em;
-  margin-bottom: 1em;
-}
-
-.color-switch {
-  width: 4em;
-  height: 2em;
-  border-radius: 10em;
-  background: var(--clr-base);
-  border: 2px solid var(--clr-primary);
-  position: absolute;
-  cursor: pointer;
-}
-
-.slider-toggle-mode {
-  width: 1.6em;
-  height: 1.6em;
-  background: var(--clr-primary);
-  position: absolute;
-  border-radius: 10em;
-  top: 0.2em;
-  left: 0.2em;
-  cursor: pointer;
-  transition: all 250ms ease-in-out;
-}
-
-.color-switch::before {
-  content: "Light Mode On";
-  position: absolute;
-  display: inline-block;
-  width: 12em;
-  left: -8em;
-  top: 0.4em;
-}
-
-#input-toggle-mode:checked ~ label .slider-toggle-mode {
-  transform: translatex(2em);
-}
-
-#input-toggle-mode:checked ~ .color-switch::before {
-  content: "Dark Mode on";
-}
-
-#input-toggle-mode {
-  display: none;
-}
-
-#input-field {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-
-/* Content of website */
-
-.application {
-  width: 80%;
+/* Application */
+#application {
+  width: 90%;
   margin: 0 auto;
+  margin-bottom: 5%;
+  justify-content: center;
 }
 
-#page-title {
+#application-title {
   font-size: 50px;
   color: #000000;
   position: relative;
   top: 20px;
 }
 
-#page-title span {
+#application-title > span {
   color: #dd5c8e;
 }
 
+/* Section for Home Page */
 #professor-search {
-  position: relative;
-  margin-top: 20px;
-  height: 40px;
-  width: 400px;
+  margin: 5%;
+  width: inherit;
   border-radius: 25px;
   border: 2px solid;
-  text-indent: 20px;
-  font-size: 14px;
+  text-indent: 3%;
 }
 
 #professor-search:hover {
@@ -194,75 +133,9 @@ nav ul li a:hover::before {
   font-family: "Poppins";
 }
 
-.application .search button {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  border: none;
-  background-color: #ffffff;
-
-  position: relative;
-  left: -48px;
-  top: 6px;
-}
-
-.application .search button:hover {
-  transition: all 250ms;
-  background-color: #f6d0de;
-}
-
-/* result */
-
-@media (min-width: 640px) {
-  #teacher-names {
-    grid-template-columns: 40% 40%;
-  }
-}
-@media (min-width: 768px) {
-  #teacher-names {
-    grid-template-columns: 20% 20% 20% 20%;
-  }
-}
-
-#teacher-names {
-  display: grid;
-  margin: auto;
-  row-gap: 20px;
-  column-gap: 20px;
-  padding: 5%;
-  justify-content: center;
-  align-items: center;
-}
-
-.professor-block {
-  display: flex;
-  border-radius: 10px;
-  padding: 5%;
-  border: 1px solid var(--clr-primary);
-  background: var(--clr-base);
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 60%;
-}
-
-.professor-block:hover {
-  transition: all ease-in-out 250ms;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  /* background-color: var(--clr-hover); */
-}
-
-.professor-block:active {
-  background-color: #f4a7bb;
-  animation-duration: 250ms;
-}
-
 #professor-search {
-  float: top;
-  padding-top: 18px;
-  padding-bottom: 18px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: 2%;
+  padding-bottom: 2%;
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 18px 18px;
@@ -276,10 +149,91 @@ nav ul li a:hover::before {
   transform-style: preserve-3d;
 }
 
+@media (max-width: 480px) {
+  #application {
+    justify-content: center;
+    text-align: center;
+  }
+  #nav-buttons {
+    display: none;
+  }
+  #nav-buttons > * {
+    display: none;
+  }
+  #navigation-bar {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #nav-bar-padding {
+    display: none;
+  }
+  #application-title {
+    font-size: 2.5em;
+    text-align: center;
+  }
+  #professor-search {
+    justify-content: center;
+    text-align: center;
+    text-indent: 0%;
+  }
+}
+
+@media (max-width: 480px) {
+  #teacher-names {
+    grid-template-columns: 100%;
+    row-gap: 3em;
+    column-gap: 2em;
+    margin-top: 5%;
+  }
+}
+
+@media (min-width: 480px) {
+  #teacher-names {
+    grid-template-columns: 20% 20% 20% 20%;
+    row-gap: 4em;
+    column-gap: 3em;
+    margin: auto;
+  }
+}
+
+#teacher-names {
+  display: grid;
+  padding: 5%;
+  justify-content: center;
+  align-items: center;
+  row-gap: 4em;
+  column-gap: 3em;
+}
+
+.professor-block {
+  display: flex;
+  border-radius: 10px;
+  padding: 5%;
+  border: 1px solid var(--clr-primary);
+  background: var(--clr-base);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.professor-block:hover {
+  transition: all ease-in-out 250ms;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.professor-block:active {
+  background-color: #f4a7bb;
+  animation-duration: 250ms;
+}
+
+/* Section for teacher page */
 #back-button {
   margin-top: 2%;
 }
 
+/* Section for new comment page */
 #comment-form {
   display: flex;
 

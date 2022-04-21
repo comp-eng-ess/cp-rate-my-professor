@@ -25,7 +25,6 @@ const db = getFirestore(app);
 async function fetchTeacherName(searchQuery) {
   const teachersRef = collection(db, "professor-names");
   const querySnapshot = await getDocs(teachersRef);
-  // console.log(querySnapshot.docs.map((doc) => doc.data()));
   let professorsDiv = "";
   let professorOption = "";
   let filteredData = querySnapshot.docs.filter((doc) => {
@@ -35,8 +34,8 @@ async function fetchTeacherName(searchQuery) {
   });
   filteredData.map((doc) => {
     professorsDiv += `<div class="professor-block" id=${doc.id}>${
-      doc.data()["firstname"]
-    } ${doc.data()["lastname"]}</div>`;
+      doc.data().firstname
+    } ${doc.data().lastname}</div>`;
     professorOption += `<option value="${doc.data()["firstname"]} ${
       doc.data()["lastname"]
     }">${doc.data()["firstname"]} ${doc.data()["lastname"]}</option>`;
@@ -47,17 +46,10 @@ async function fetchTeacherName(searchQuery) {
   addProfOnClick();
 }
 
-// document.getElementById("input-toggle-mode").onclick = () => {
-//   var element = document.body;
-//   element.classList.toggle("dark-mode");
-// };
-
 let genHomePage = () => {
   document.getElementById("application").innerHTML = `
-      <div class="search">
-        <h1 id="page-title">CP Rate My <span>Professor!</span></h1>
-        <input name="professor-name" id="professor-search" placeholder="Search professor name" />
-      </div>
+      <h1 id="application-title">CP Rate My <span>Professor!</span></h1>
+      <input name="professor-name" id="professor-search" placeholder="Search professor name" />
       <datalist id="professor-options"> </datalist>
       <div id="teacher-names"></div>
       `;
@@ -146,6 +138,7 @@ const genCommentPage = (id, professorName) => {
 };
 
 document.getElementById("go-home").onclick = genHomePage;
+document.getElementById("logo").onclick = genHomePage;
 document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
