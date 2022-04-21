@@ -70,9 +70,12 @@ function addProfOnClick() {
 }
 const genTeacherPage = async (id) => {
   const rating = 2.5;
-  const commentCount = 10;
+  // const commentCount = 10;
   let d = await getDoc(doc(db, "professor-names", id));
 
+  let querySnapshot = await getDocs(
+    collection(db, "professor-names", id, "comments")
+  );
   document.getElementById("application").innerHTML = `
   <div>
     <button id="back-button">
@@ -81,7 +84,7 @@ const genTeacherPage = async (id) => {
     <div>
       <h2>${d.data().firstname + " " + d.data().lastname}</h2>
       <div>Score: ${rating}/5</div>
-      <div>Comments : ${commentCount}</div>
+      <div>Comments : ${querySnapshot.docs.length}</div>
     </div>
     <button id="new-comment-button">
       New comment
@@ -90,9 +93,6 @@ const genTeacherPage = async (id) => {
     </div>
   </div>
   `;
-  let querySnapshot = await getDocs(
-    collection(db, "professor-names", id, "comments")
-  );
   querySnapshot.docs.map((doc, idx) => {
     let a = doc.data();
     document.getElementById("comment-box").innerHTML += `
