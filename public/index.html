@@ -16,29 +16,20 @@
   <body>
     <!-- top navigation bar -->
     <header>
-      <section class="nav-container">
-        <a id="logo">
+      <section id="navigation-bar">
+        <div id="logo">
           <img class="logo" alt="logo" src="images/logo.png" />
-        </a>
-
-        <nav>
-          <ul>
-            <li><a id="go-home">Home</a></li>
-            <li><a id="go-contact">Contact</a></li>
-            <li><a id="go-about">About</a></li>
-          </ul>
-        </nav>
-
-        <!-- <div class="wrapper-toggle-mode">
-          <input type="checkbox" id="input-toggle-mode" />
-          <label for="input-toggle-mode" class="color-switch">
-            <div class="slider-toggle-mode"></div>
-          </label>
-        </div> -->
+        </div>
+        <div id="nav-bar-padding" class="push"></div>
+        <div id="nav-buttons">
+          <div class="nav-button" id="go-home">Home</div>
+          <div class="nav-button" id="go-contact">Contact</div>
+          <div class="nav-button" id="go-about">About</div>
+        </div>
       </section>
     </header>
 
-    <!-- application(search bar) -->
+    <!-- application -->
     <section id="application" class="application"></section>
   </body>
   <script type="module" src="./script.js"></script>
