@@ -167,13 +167,14 @@ const genCommentPage = (id, professorName) => {
     event.preventDefault();
     let inputs = document
       .getElementById("comment-form")
-      .querySelectorAll("input[type=text]");
+      .querySelectorAll("input");
 
     var result = Array.from(inputs).reduce((r, ele) => {
       r[ele.name] = ele.value;
       return r;
     }, {});
     let docRef = collection(db, "professor-names", id, "comments");
+    console.log(result)
     await addDoc(docRef, result);
     genTeacherPage(id);
   };
