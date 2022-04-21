@@ -232,3 +232,31 @@ nav ul li a:hover::before {
 #back-button {
   margin-top: 2%;
 }
+
+/* Section for new comment page */
+#comment-form-div {
+  display: flex;
+  margin: 10%;
+  padding: 5%;
+}
+
+#submit-button {
+  margin-top: 1em;
+}
+
+#comment-page-prof-name {
+  font-weight: bold;
+  color: #dd5c8e;
+}
+
+#comment-box {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
+.comment {
+  border: 1px solid red;
+}

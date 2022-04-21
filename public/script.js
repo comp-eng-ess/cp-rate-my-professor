@@ -5,9 +5,11 @@ import {
   addDoc,
   getDoc,
   getDocs,
+  updateDoc,
   query,
   where,
   doc,
+  arrayUnion,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -82,10 +84,35 @@ const genTeacherPage = async (id) => {
       <div>Score: ${rating}/5</div>
       <div>Comments : ${commentCount}</div>
     </div>
+    <button id="new-comment-button">
+      New comment
+    </button>
+    <div id="comment-box">
+    </div>
   </div>
   `;
+  let querySnapshot = await getDocs(
+    collection(db, "professor-names", id, "comments")
+  );
+  querySnapshot.docs.map((doc, idx) => {
+    let a = doc.data();
+    console.log(a);
+    document.getElementById("comment-box").innerHTML += `
+    <div class="comment">
+      <div class="comment-number">Comment #${idx + 1}</div>
+      <div>Score ${a.score}</div>
+      <div>Course ${a.course}</div>
+      <div>Section ${a.section}</div>
+      <div>Semester ${a.year}</div>
+      <div>Academic Year ${a.year}</div>
+      <div>Comment ${a.comment}</div>
+    </div>`;
+  });
   document.getElementById("back-button").onclick = () => {
     genHomePage();
+  };
+  document.getElementById("new-comment-button").onclick = () => {
+    genCommentPage(id, d.data().firstname + " " + d.data().lastname);
   };
 };
 const genContactPage = () => {
@@ -99,9 +126,65 @@ const genAboutPage = () => {
   `;
 };
 
+const genCommentPage = (id, professorName) => {
+  document.getElementById("application").innerHTML = `
+  <button id="back-button">
+    Go Back
+  </button>
+  <h2>Adding comment for <span id="comment-page-prof-name">${professorName}<span></h2>
+  <div id="comment-form-div">
+    <form id="comment-form">
+      <div>
+        Score
+        <input type="number" id="score" name="score" min="1" max="5"/>
+      </div>
+      <div>
+        Course
+        <input type="text" id="course" name="course" value="" />
+      </div>
+      <div>
+        <label for="section">section </label>
+        <input type="number" id="section" name="section" value="" />
+      </div>
+      <div>
+        <label for="year">year </label>
+        <input type="number" id="year" name="year" value="" />
+      </div>
+      <div>
+        <label for="semester">semester</label>
+        <input type="number" id="semester" name="semester" value="" />
+      </div>
+      <div>
+        <label for="comment">comment</label>
+        <input type="text" id="comment" name="comment" />
+      </div>
+      <button id="submit-button">submit</button>
+    </form>
+  </div>
+  `;
+  document.getElementById("back-button").onclick = () => genTeacherPage(id);
+  document.getElementById("comment-form").onsubmit = async (event) => {
+    event.preventDefault();
+    let inputs = document
+      .getElementById("comment-form")
+      .querySelectorAll("input");
+
+    var result = Array.from(inputs).reduce((r, ele) => {
+      r[ele.name] = ele.value;
+      return r;
+    }, {});
+    let docRef = collection(db, "professor-names", id, "comments");
+    console.log(result)
+    await addDoc(docRef, result);
+    genTeacherPage(id);
+  };
+};
+
 document.getElementById("go-home").onclick = genHomePage;
 document.getElementById("logo").onclick = genHomePage;
 document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
 genHomePage();
+// genCommentPage("JGY4AkwuNpRbHK52edaF", "nnn nnn");
+// genTeacherPage("JGY4AkwuNpRbHK52edaF");
