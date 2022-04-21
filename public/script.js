@@ -107,7 +107,6 @@ const genTeacherPage = async (id) => {
     genHomePage();
   };
   document.getElementById("new-comment-button").onclick = () => {
-    console.log(id);
     genCommentPage(id, d.data().firstname + " " + d.data().lastname);
   };
 };
@@ -123,8 +122,6 @@ const genAboutPage = () => {
 };
 
 const genCommentPage = (id, professorName) => {
-  console.log(id);
-  console.log(professorName);
   document.getElementById("application").innerHTML = `
   <button id="back-button">
     Go Back
