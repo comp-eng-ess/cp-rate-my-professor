@@ -82,10 +82,16 @@ const genTeacherPage = async (id) => {
       <div>Score: ${rating}/5</div>
       <div>Comments : ${commentCount}</div>
     </div>
+    <button id="new-comment-button">
+      New comment
+    </button>
   </div>
   `;
   document.getElementById("back-button").onclick = () => {
     genHomePage();
+  };
+  document.getElementById("new-comment-button").onclick = () => {
+    genCommentPage(id, d.data().firstname + " " + d.data().lastname);
   };
 };
 const genContactPage = () => {
@@ -100,16 +106,18 @@ const genAboutPage = () => {
 };
 
 const genCommentPage = (id, professorName) => {
+  console.log(id);
+  console.log(professorName);
   document.getElementById("application").innerHTML = `
   <button id="back-button">
     Go Back
   </button>
-  <h2>Adding comment for ${professorName}</h2>
-  <div id="comment-form">
-    <form>
+  <h2>Adding comment for <span id="comment-page-prof-name">${professorName}<span></h2>
+  <div id="comment-form-div">
+    <form id="comment-form">
       <div>
         Score
-        <input type="text" />
+        <input type="text" id="score" name="score"/>
       </div>
       <div>
         Course
@@ -129,12 +137,25 @@ const genCommentPage = (id, professorName) => {
       </div>
       <div>
         <label for="comment">comment</label>
-        <input type="textarea" />
+        <input type="text" id="comment" name="comment" />
       </div>
       <button id="submit-button">submit</button>
     </form>
   </div>
   `;
+  document.getElementById("comment-form").onsubmit = (event) => {
+    event.preventDefault();
+    let inputs = document
+      .getElementById("comment-form")
+      .querySelectorAll("input[type=text]");
+
+    var result = Array.from(inputs).reduce((r, ele) => {
+      r[ele.name] = ele.value;
+      return r;
+    }, {});
+
+    console.log(result);
+  };
 };
 
 document.getElementById("go-home").onclick = genHomePage;
@@ -143,4 +164,4 @@ document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
 genHomePage();
-// genCommentPage(1,"Noppakorn Jiravaranun");
+// genCommentPage(1, "Noppakorn Jiravaranun");

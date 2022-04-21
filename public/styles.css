@@ -234,13 +234,17 @@ nav ul li a:hover::before {
 }
 
 /* Section for new comment page */
-#comment-form {
+#comment-form-div {
   display: flex;
-
   margin: 10%;
   padding: 5%;
 }
 
 #submit-button {
   margin-top: 1em;
+}
+
+#comment-page-prof-name {
+  font-weight: bold;
+  color: #dd5c8e;
 }
