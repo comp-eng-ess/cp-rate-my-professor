@@ -241,17 +241,31 @@ nav ul li a:hover::before {
   padding: 5%;
 }
 
-#submit-button {
+#submit-button,
+#back-button {
   margin-top: 1em;
-  padding: 0.75em;
   border-radius: 0.5em;
   border: none;
+  cursor: pointer;
   background-color: var(--clr-primary);
+}
+#comment-page-button-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+#back-button{
+  position: left;
 }
 
 #comment-page-prof-name {
-  font-weight: bold;
+  font-weight: bolder;
   color: #dd5c8e;
+}
+#head-comment-page {
+  margin-bottom: 0;
+  margin-top: 3em;
+  text-align: center;
 }
 
 #comment-box {
@@ -267,7 +281,6 @@ nav ul li a:hover::before {
 }
 
 .container {
-  margin-top: 6.25em;
   padding: 2em;
 }
 
@@ -365,22 +378,25 @@ input::-webkit-inner-spin-button {
 
 .number-input,
 .option,
-.selected {
+.selected ,
+#submit-button,#back-button{
   font-weight: bold;
   font-family: "Poppins";
   font-size: 1em;
   padding: 0.75em 1.5em;
+  background: var(--clr-header);
+  color:var(--clr-gray);
+
 }
 .number-input {
   background: var(--clr-header);
   border-radius: 0.5em;
   margin-bottom: 0.5em;
   border: none;
-  color: var(--clr-gray);
   cursor: pointer;
 }
-.number-input:focus{
-  outline:none;
+.number-input:focus {
+  outline: none;
   box-shadow: 0 0 0.5em var(--clr-primary);
 }
 .number-input::placeholder {
@@ -405,13 +421,17 @@ input::-webkit-inner-spin-button {
   border: 0.15em solid var(--clr-primary);
   border-radius: 0.5em;
 }
-#comment-area:focus{
+#comment-area:focus {
   box-shadow: 0 0 0.5em var(--clr-primary);
-  outline:#eceff1;
+  outline: #eceff1;
 }
 #char-lenght {
   font-family: "Poppins";
   font-size: 0.75em;
   text-align: right;
+  color: #2f3640;
+}
+
+h2 {
   color: #2f3640;
 }
