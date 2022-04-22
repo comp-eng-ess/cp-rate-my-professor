@@ -243,6 +243,30 @@ nav ul li a:hover::before {
 }
 .comment-number {
   font-weight: bolder;
+  font-size: 1.25em;
+}
+
+.comment-data {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+.category {
+  padding-right: 1em;
+}
+
+.category span {
+  font-weight: bold;
+}
+
+.comment-content {
+  margin-top: 0.5em;
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .comment-number {
+    font-size: 1em;
+  }
 }
 
 /* Section for new comment page */
@@ -397,14 +421,15 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-/* input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
-}  */
+}
 
 .number-input,
 .option,
 .selected,
 #submit-button,
+#new-comment-button,
 #back-button {
   font-weight: bold;
   font-family: "Poppins";
@@ -426,6 +451,12 @@ input::-webkit-inner-spin-button {
 }
 .number-input::placeholder {
   color: var(--clr-gray);
+}
+
+@media (max-width: 480px) {
+  .number-input::placeholder {
+    text-align: center;
+  }
 }
 .number-input-box {
   display: flex;

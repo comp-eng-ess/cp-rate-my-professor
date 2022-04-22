@@ -81,7 +81,6 @@ const genTeacherPage = async (id) => {
       let a = doc.data();
       sumRating += parseInt(a.score);
     });
-    console.log(sumRating);
     rating = (sumRating / querySnapshot.docs.length).toFixed(1);
   }
   document.getElementById("application").innerHTML = `
@@ -97,7 +96,7 @@ const genTeacherPage = async (id) => {
     </button>
     <div id="comment-box">
     </div>
-    <button id="back-button">
+    <button id="back-button">Back
     </button>
   </div>
   `;
@@ -106,12 +105,14 @@ const genTeacherPage = async (id) => {
     document.getElementById("comment-box").innerHTML += `
     <div class="comment">
       <div class="comment-number">Comment #${idx + 1}</div>
-      <div>Score ${a.score}</div>
-      <div>Course ${a.course}</div>
-      <div>Section ${a.section}</div>
-      <div>Semester ${a.semester}</div>
-      <div>Academic Year ${a.year}</div>
-      <div>Comment ${a.comment}</div>
+      <div class="comment-data">
+        <div class="category"><span>Score:</span> ${a.score}</div>
+        <div class="category"><span>Course:</span> ${a.course}</div>
+        <div class="category"><span>Section:</span> ${a.section}</div>
+        <div class="category"><span>Semester:</span> ${a.semester}</div>
+        <div class="category"><span>Academic Year:</span> ${a.year}</div>
+        </div>
+      <div class="comment-content">${a.comment}</div>
     </div>`;
   });
   document.getElementById("back-button").onclick = () => {
@@ -172,7 +173,7 @@ const genCommentPage = (id, professorName) => {
       <div class="number-input-box">
         <h2>Course</h2>
         <input
-          placeholder="Type Course"
+          placeholder="Course"
           type="number"
           class="number-input"
           id="course"
@@ -184,7 +185,7 @@ const genCommentPage = (id, professorName) => {
       <div class="number-input-box">
         <h2>section</h2>
         <input
-          placeholder="Type Section"
+          placeholder="Section"
           type="number"
           class="number-input"
           id="section"
@@ -196,7 +197,7 @@ const genCommentPage = (id, professorName) => {
       <div class="number-input-box">
         <h2>Academic year</h2>
         <input
-          placeholder="Type Academic Year"
+          placeholder="Academic Year"
           type="number"
           class="number-input"
           id="year"
@@ -227,7 +228,7 @@ const genCommentPage = (id, professorName) => {
         <p id="char-lenght"></p>
       </div>
       <div id="comment-page-button-container">
-        <button id="submit-button">submit</button>
+        <button id="submit-button">Submit</button>
         <button id="back-button">Go Back</button>
       </div>
     </form>
