@@ -32,9 +32,8 @@
     <!-- application -->
     <section id="application" class="application">
       <div class="container">
-        1
-        <h2>Grade</h2>
         <div class="select-box">
+          <h2>Score</h2>
           <div class="options-container">
             <div class="option">
               <input type="radio" class="radio" id="1" name="score" />
@@ -59,27 +58,42 @@
           </div>
           <div class="selected">Select Score</div>
         </div>
-        <h2>Course</h2>
-        <input
-          type="number"
-          class="number-input"
-          id="course"
-          name="course"
-          min="100000"
-          max="300000"
-        />
-        <h2>section</h2>
         <div class="number-input-box">
-        <input
-          type="number"
-          class="number-input"
-          id="section"
-          name="section"
-          min="1"
-          max="100"
-        />
+          <h2>Course</h2>
+          <input
+            placeholder="Type Course"
+            type="number"
+            class="number-input"
+            id="course"
+            name="course"
+            min="1000000"
+            max="9000000"
+          />
         </div>
-        <h2>year</h2>
+        <div class="number-input-box">
+          <h2>section</h2>
+          <input
+            placeholder="Type Section"
+            type="number"
+            class="number-input"
+            id="section"
+            name="section"
+            min="1"
+            max="100"
+          />
+        </div>
+        <div class="number-input-box">
+          <h2>year</h2>
+          <input
+            placeholder="Type Year"
+            type="number"
+            class="number-input"
+            id="year"
+            name="year"
+            min="2015"
+            max="2022"
+          />
+        </div>
         <h2>semester</h2>
         <div class="select-box">
           <div class="options-container">
@@ -95,6 +109,9 @@
           <div class="selected">Select semester</div>
         </div>
         <h2>comment</h2>
+        <div class="comment-container">
+          <textarea id="comment-area"> </textarea>
+        </div>
         <button id="submit-button">submit</button>
       </div>
     </section>

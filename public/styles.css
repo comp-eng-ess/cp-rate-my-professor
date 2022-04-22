@@ -263,11 +263,7 @@ nav ul li a:hover::before {
 
 .container {
   margin-top: 6.25em;
-  margin-right:20em;
   padding: 2em;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
 }
 
 .select-box {
@@ -343,7 +339,8 @@ nav ul li a:hover::before {
 .select-box .option:hover {
   background: #414b57;
 }
-.select-box label { cursor: pointer;
+.select-box label {
+  cursor: pointer;
 }
 
 .select-box .option .radio {
@@ -357,21 +354,39 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+/* input[type=number] {
   -moz-appearance: textfield;
-}
-.number-input{
-  display: flex;
+}  */
+.number-input {
   background: #2f3640;
   border-radius: 0.5em;
   margin-bottom: 0.5em;
   border: none;
-  width: 100%;
-  height: 3.25em;
   color: #f5f6fa;
   font-weight: 550;
   font-family: "Poppins";
-  margin-right:2.5em;
-  padding:0em 2em;
   cursor: pointer;
+  height: 3.25em;
+  padding: 0em 2em;
+}
+.number-input-box {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+  width: 100%;
+}
+.comment-container{
+  width: 100%;
+  display: flex;
+}
+#comment-area {
+  font-family: "Poppins";
+  display: block;
+  width: 100%;
+  resize: none;
+  padding: 2em;
+  color: #000000;
+  border: 1.5px solid #525861;
+  border-radius: 0.5em;
 }
