@@ -86,9 +86,6 @@ const genTeacherPage = async (id) => {
   }
   document.getElementById("application").innerHTML = `
   <div>
-    <button id="back-button">
-      Go Back
-    </button>
     <div>
       <h1>${d.data().firstname + " " + d.data().lastname}</h1>
       <div>Score:</div>
@@ -100,6 +97,8 @@ const genTeacherPage = async (id) => {
     </button>
     <div id="comment-box">
     </div>
+    <button id="back-button">
+    </button>
   </div>
   `;
   querySnapshot.docs.map((doc, idx) => {
@@ -110,7 +109,7 @@ const genTeacherPage = async (id) => {
       <div>Score ${a.score}</div>
       <div>Course ${a.course}</div>
       <div>Section ${a.section}</div>
-      <div>Semester ${a.year}</div>
+      <div>Semester ${a.semester}</div>
       <div>Academic Year ${a.year}</div>
       <div>Comment ${a.comment}</div>
     </div>`;
@@ -300,6 +299,8 @@ const genCommentPage = (id, professorName) => {
     for (const key in result) {
       data[key] = parseInt(result[key]);
     }
+    data["score"] = parseInt(selected[0].innerHTML);
+    data["semester"] = parseInt(selected[1].innerHTML);
     await addDoc(docRef, data);
     genTeacherPage(id);
   };
