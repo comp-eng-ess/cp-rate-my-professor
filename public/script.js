@@ -178,9 +178,49 @@ const genCommentPage = (id, professorName) => {
   };
 };
 
+
+const selected = document.querySelectorAll(".selected");
+const optionsContainer = document.querySelectorAll(".options-container");
+const optionsList = document.querySelectorAll(".option");
+selected[0].addEventListener("click", () => {
+  optionsContainer[0].classList.toggle("active");
+});
+selected[1].addEventListener("click", () => {
+  optionsContainer[1].classList.toggle("active");
+});
+
+optionsList[0].addEventListener("click", () => {
+  selected[0].innerHTML = optionsList[0].querySelector("label").innerHTML;
+  optionsContainer[0].classList.remove("active");
+});
+optionsList[1].addEventListener("click", () => {
+  selected[0].innerHTML = optionsList[1].querySelector("label").innerHTML;
+  optionsContainer[0].classList.remove("active");
+});
+optionsList[2].addEventListener("click", () => {
+  selected[0].innerHTML = optionsList[2].querySelector("label").innerHTML;
+  optionsContainer[0].classList.remove("active");
+});
+optionsList[3].addEventListener("click", () => {
+  selected[0].innerHTML = optionsList[3].querySelector("label").innerHTML;
+  optionsContainer[0].classList.remove("active");
+});
+optionsList[4].addEventListener("click", () => {
+  selected[0].innerHTML = optionsList[4].querySelector("label").innerHTML;
+  optionsContainer[0].classList.remove("active");
+});
+optionsList[5].addEventListener("click", () => {
+  selected[1].innerHTML = optionsList[5].querySelector("label").innerHTML;
+  optionsContainer[1].classList.remove("active");
+});
+optionsList[6].addEventListener("click", () => {
+  selected[1].innerHTML = optionsList[6].querySelector("label").innerHTML;
+  optionsContainer[1].classList.remove("active");
+});
+
 document.getElementById("go-home").onclick = genHomePage;
 document.getElementById("logo").onclick = genHomePage;
 document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
-genHomePage();
+// genHomePage();
