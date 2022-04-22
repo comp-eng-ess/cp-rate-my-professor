@@ -2,11 +2,11 @@
 
 
 :root {
-  --clr-background: #eceff1;
+  --clr-background: #eeeeee;
   --clr-base: #ffffff;
-  --clr-primary: #ffb6c1;
-  --clr-gray: #310621;
-  --clr-hover: #f08ea8;
+  --clr-primary: #32e0c4;
+  --clr-gray: #393e46;
+  --clr-hover: #0f7377;
 }
 
 body {
@@ -107,7 +107,7 @@ nav .logo{
 }
 
 #application-title > span {
-  color: #dd5c8e;
+  color: #0f7377;
 }
 
 /* Section for Home Page */
@@ -121,7 +121,7 @@ nav .logo{
 
 #professor-search:hover {
   transition: all ease-in-out 250ms;
-  border: 2px solid #dd5c8e;
+  border: 2px solid #0f7377;
 }
 
 #professor-search::placeholder {
@@ -219,7 +219,7 @@ nav .logo{
 }
 
 .professor-block:active {
-  background-color: #f4a7bb;
+  background-color: #32e0c4;
   animation-duration: 250ms;
 }
 
@@ -241,7 +241,7 @@ nav .logo{
 
 #comment-page-prof-name {
   font-weight: bold;
-  color: #dd5c8e;
+  color: #0f7377;
 }
 
 #comment-box {
