@@ -242,6 +242,10 @@ nav ul li a:hover::before {
 
 #submit-button {
   margin-top: 1em;
+  padding: 0.75em;
+  border-radius:0.5em;
+  border:none;
+  background-color: var(--clr-primary);
 }
 
 #comment-page-prof-name {
@@ -332,7 +336,6 @@ nav ul li a:hover::before {
 
 .select-box .option,
 .selected {
-  padding: 0.75em 1.5em;
   cursor: pointer;
 }
 
@@ -357,23 +360,25 @@ input::-webkit-inner-spin-button {
 /* input[type=number] {
   -moz-appearance: textfield;
 }  */
+
+.number-input ,.option,.selected{
+  font-weight: bold;
+  font-family: "Poppins";
+  font-size: 1em;
+  padding: 0.75em 1.5em;
+
+}
 .number-input {
   background: #2f3640;
   border-radius: 0.5em;
   margin-bottom: 0.5em;
   border: none;
   color: #f5f6fa;
-  font-weight: 550;
-  font-family: "Poppins";
   cursor: pointer;
-  height: 3.25em;
-  padding: 0em 2em;
 }
 .number-input-box {
   display: flex;
   flex-direction: column;
-  border-radius: 0.5em;
-  margin-bottom: 0.5em;
   width: 100%;
 }
 .comment-container{
