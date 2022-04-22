@@ -238,10 +238,10 @@ nav ul li a:hover::before {
   border: none;
   padding: 1em;
   border-radius: 0.5em;
-  box-shadow: 0 0.125em 0.150em rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.125em 0.15em rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
-.comment-number{
+.comment-number {
   font-weight: bolder;
 }
 
@@ -260,12 +260,12 @@ nav ul li a:hover::before {
   cursor: pointer;
   background-color: var(--clr-primary);
 }
-#comment-page-button-container{
+#comment-page-button-container {
   display: flex;
   justify-content: space-between;
 }
 
-#back-button{
+#back-button {
   position: left;
 }
 
@@ -286,17 +286,22 @@ nav ul li a:hover::before {
   flex-direction: column;
   row-gap: 1em;
 }
-h1{
-  color:#dd5c8e;
+
+h1 {
+  color: #dd5c8e;
 }
 
-.average-score{
-  color:#dd5c8e;
-  font-weight:bolder;
-  font-size:5em;
+.average-score {
+  color: #dd5c8e;
+  font-weight: bolder;
+  font-size: 5em;
 }
 .comment {
-  border: 1px solid red;
+  color: #2f3640;
+  padding: 2em;
+  border-radius: 0.5em;
+  background: #ebecf0;
+  box-shadow: 0 0.75em 1.2em rgba(0, 0, 0, 0.25);
 }
 
 .container {
@@ -397,15 +402,15 @@ input::-webkit-inner-spin-button {
 
 .number-input,
 .option,
-.selected ,
-#submit-button,#back-button{
+.selected,
+#submit-button,
+#back-button {
   font-weight: bold;
   font-family: "Poppins";
   font-size: 1em;
   padding: 0.75em 1.5em;
   background: var(--clr-header);
-  color:var(--clr-gray);
-
+  color: var(--clr-gray);
 }
 .number-input {
   background: var(--clr-header);
@@ -449,13 +454,4 @@ input::-webkit-inner-spin-button {
   font-size: 0.75em;
   text-align: right;
   color: #2f3640;
-}
-
-h2 {
-  color: #2f3640;
-  /* border: 1px solid var(--clr-hover); */
-  padding: 2em;
-  border-radius: 0.5em;
-  background: #ebecf0;
-  box-shadow: 0 0.75em 1.2em rgba(0, 0, 0, 0.25);
 }
