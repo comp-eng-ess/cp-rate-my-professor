@@ -30,7 +30,27 @@
     </header>
 
     <!-- application -->
-    <section id="application" class="application"></section>
+    <section id="application" class="application">
+      <div>
+        <button id="back-button">Go Back</button>
+        <div>
+          <h2>first last</h2>
+          <div>Score: 5/5</div>
+          <div>Comments: 1</div>
+        </div>
+        <button id="new-comment-button">New comment</button>
+        <div id="comment-box"></div>
+      </div>
+      <div class="comment">
+        <div class="comment-number">Comment #${idx + 1}</div>
+        <div>Score ${a.score}</div>
+        <div>Course ${a.course}</div>
+        <div>Section ${a.section}</div>
+        <div>Semester ${a.year}</div>
+        <div>Academic Year ${a.year}</div>
+        <div>Comment ${a.comment}</div>
+      </div>
+    </section>
   </body>
   <script type="module" src="./script.js"></script>
 </html>

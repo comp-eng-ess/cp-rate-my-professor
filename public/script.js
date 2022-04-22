@@ -183,4 +183,4 @@ document.getElementById("logo").onclick = genHomePage;
 document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
-genHomePage();
+// genHomePage();
