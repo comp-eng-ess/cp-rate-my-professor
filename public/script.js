@@ -82,8 +82,9 @@ const genTeacherPage = async (id) => {
       Go Back
     </button>
     <div>
-      <h2>${d.data().firstname + " " + d.data().lastname}</h2>
-      <div>Score: ${rating}/5</div>
+      <h1>${d.data().firstname + " " + d.data().lastname}</h1>
+      <div>Score:</div>
+      <div><span class="average-score">${rating}</span>/5</div>
       <div>Comments : ${querySnapshot.docs.length}</div>
     </div>
     <button id="new-comment-button">

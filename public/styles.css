@@ -229,8 +229,19 @@ nav ul li a:hover::before {
 }
 
 /* Section for teacher page */
-#back-button {
-  margin-top: 2%;
+
+#back-button,
+#new-comment-button {
+  margin-top: 2em;
+  background: #ebecf0;
+  border: none;
+  padding: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 0.125em 0.150em rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.comment-number{
+  font-weight: bolder;
 }
 
 /* Section for new comment page */
@@ -250,13 +261,25 @@ nav ul li a:hover::before {
 }
 
 #comment-box {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 2em;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   row-gap: 1em;
 }
+h1{
+  color:#dd5c8e;
+}
 
+.average-score{
+  color:#dd5c8e;
+  font-weight:bolder;
+  font-size:5em;
+}
 .comment {
-  border: 1px solid red;
+  /* border: 1px solid var(--clr-hover); */
+  padding: 2em;
+  border-radius: 0.5em;
+  background: #ebecf0;
+  box-shadow: 0 0.75em 1.2em rgba(0, 0, 0, 0.25);
 }
