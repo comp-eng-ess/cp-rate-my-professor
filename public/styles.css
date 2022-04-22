@@ -397,8 +397,12 @@ input::-webkit-inner-spin-button {
   resize: none;
   padding: 1em 2em;
   color: var(--clr-gray);
-  border: 1.5px solid #525861;
+  border: 0.15em solid var(--clr-primary);
   border-radius: 0.5em;
+}
+#comment-area:focus{
+  box-shadow: 0 0 0.5em var(--clr-primary);
+  outline:#eceff1;
 }
 #char-lenght {
   font-family: "Poppins";
