@@ -82,8 +82,9 @@ const genTeacherPage = async (id) => {
       Go Back
     </button>
     <div>
-      <h2>${d.data().firstname + " " + d.data().lastname}</h2>
-      <div>Score: ${rating}/5</div>
+      <h1>${d.data().firstname + " " + d.data().lastname}</h1>
+      <div>Score:</div>
+      <div><span class="average-score">${rating}</span>/5</div>
       <div>Comments : ${querySnapshot.docs.length}</div>
     </div>
     <button id="new-comment-button">
@@ -177,11 +178,27 @@ const genCommentPage = (id, professorName) => {
     genTeacherPage(id);
   };
 };
-
-
+//comment-text-counter
+var commentText = document.getElementById("comment-area");
+var charlenght = document.getElementById("char-lenght");
+var limit = 200;
+charlenght.textContent = 0 + "/" + limit;
+commentText.addEventListener("input", function () {
+  var textLenght = commentText.value.length;
+  charlenght.textContent = textLenght + "/" + limit;
+});
+//select function
 const selected = document.querySelectorAll(".selected");
 const optionsContainer = document.querySelectorAll(".options-container");
 const optionsList = document.querySelectorAll(".option");
+
+// for (var i = 0; i < optionsContainer.length; ++i) {
+//   selected[i].addEventListener("click", () => {
+//     optionsContainer[i].classList.toggle("active");
+//     console.log("a");
+//   });
+// }
+
 selected[0].addEventListener("click", () => {
   optionsContainer[0].classList.toggle("active");
 });
@@ -224,3 +241,4 @@ document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
 // genHomePage();
+

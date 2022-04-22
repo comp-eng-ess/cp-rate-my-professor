@@ -6,6 +6,7 @@
   --clr-primary: #ffb6c1;
   --clr-gray: #310621;
   --clr-hover: #f08ea8;
+  --clr-header: #f6d0de;
 }
 
 body {
@@ -243,8 +244,8 @@ nav ul li a:hover::before {
 #submit-button {
   margin-top: 1em;
   padding: 0.75em;
-  border-radius:0.5em;
-  border:none;
+  border-radius: 0.5em;
+  border: none;
   background-color: var(--clr-primary);
 }
 
@@ -276,8 +277,8 @@ nav ul li a:hover::before {
 }
 
 .select-box .options-container {
-  background: #2f3640;
-  color: #f5f6fa;
+  background: var(--clr-header);
+  color: var(--clr-gray);
   max-height: 0;
   width: 100%;
   opacity: 0;
@@ -289,10 +290,10 @@ nav ul li a:hover::before {
 }
 
 .selected {
-  background: #2f3640;
+  background: var(--clr-header);
   border-radius: 0.5em;
   margin-bottom: 0.5em;
-  color: #f5f6fa;
+  color: var(--clr-gray);
   position: relative;
 
   order: 0;
@@ -313,7 +314,7 @@ nav ul li a:hover::before {
 }
 
 .select-box .options-container.active {
-  max-height: 15em;
+  max-height: 8em;
   opacity: 1;
   overflow-y: scroll;
 }
@@ -325,12 +326,12 @@ nav ul li a:hover::before {
 
 .select-box .options-container::-webkit-scrollbar {
   width: 0.5em;
-  background: #0d141f;
+  background: var(--clr-primary);
   border-radius: 0 0.5em 0.5em 0;
 }
 
 .select-box .options-container::-webkit-scrollbar-thumb {
-  background: #525861;
+  background: var(--clr-hover);
   border-radius: 0 0.5em 0.5em 0;
 }
 
@@ -340,7 +341,7 @@ nav ul li a:hover::before {
 }
 
 .select-box .option:hover {
-  background: #414b57;
+  background: var(--clr-primary);
 }
 .select-box label {
   cursor: pointer;
@@ -361,27 +362,31 @@ input::-webkit-inner-spin-button {
   -moz-appearance: textfield;
 }  */
 
-.number-input ,.option,.selected{
+.number-input,
+.option,
+.selected {
   font-weight: bold;
   font-family: "Poppins";
   font-size: 1em;
   padding: 0.75em 1.5em;
-
 }
 .number-input {
-  background: #2f3640;
+  background: var(--clr-header);
   border-radius: 0.5em;
   margin-bottom: 0.5em;
   border: none;
-  color: #f5f6fa;
+  color: var(--clr-gray);
   cursor: pointer;
+}
+.number-input::placeholder {
+  color: var(--clr-gray);
 }
 .number-input-box {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.comment-container{
+.comment-container {
   width: 100%;
   display: flex;
 }
@@ -390,8 +395,14 @@ input::-webkit-inner-spin-button {
   display: block;
   width: 100%;
   resize: none;
-  padding: 2em;
-  color: #000000;
+  padding: 1em 2em;
+  color: var(--clr-gray);
   border: 1.5px solid #525861;
   border-radius: 0.5em;
+}
+#char-lenght {
+  font-family: "Poppins";
+  font-size: 0.75em;
+  text-align: right;
+  color: #2f3640;
 }
