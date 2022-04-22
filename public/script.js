@@ -69,13 +69,21 @@ function addProfOnClick() {
   );
 }
 const genTeacherPage = async (id) => {
-  const rating = 2.5;
-  // const commentCount = 10;
   let d = await getDoc(doc(db, "professor-names", id));
 
   let querySnapshot = await getDocs(
     collection(db, "professor-names", id, "comments")
   );
+  let rating = 0;
+  if (querySnapshot.docs.length > 0) {
+    let sumRating = 0;
+    querySnapshot.docs.map((doc) => {
+      let a = doc.data();
+      sumRating += parseInt(a.score);
+    });
+    console.log(sumRating);
+    rating = (sumRating / querySnapshot.docs.length).toFixed(1);
+  }
   document.getElementById("application").innerHTML = `
   <div>
     <button id="back-button">
@@ -170,8 +178,8 @@ const genCommentPage = (id, professorName) => {
           class="number-input"
           id="course"
           name="course"
-          min="1000000"
-          max="9000000"
+          min="2000000"
+          max="9999999"
         />
       </div>
       <div class="number-input-box">
@@ -228,7 +236,7 @@ const genCommentPage = (id, professorName) => {
 
   `;
 
-  //comment-counter
+  // comment-counter
   let commentText = document.getElementById("comment-area");
   let charLength = document.getElementById("char-lenght");
   charLength.textContent = 0 + "/" + limit;
@@ -236,7 +244,7 @@ const genCommentPage = (id, professorName) => {
     var textLength = commentText.value.length;
     charLength.textContent = textLength + "/" + limit;
   });
-  //select-function
+  // select-function
   const selected = document.querySelectorAll(".selected");
   const optionsContainer = document.querySelectorAll(".options-container");
   const optionsList = document.querySelectorAll(".option");
