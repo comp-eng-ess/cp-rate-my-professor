@@ -83,7 +83,8 @@ const genTeacherPage = async (id) => {
     </button>
     <div>
       <h1>${d.data().firstname + " " + d.data().lastname}</h1>
-      <div>Score: ${rating}/5</div>
+      <div>Score:</div>
+      <div><span class="average-score">${rating}</span>/5</div>
       <div>Comments : ${querySnapshot.docs.length}</div>
     </div>
     <button id="new-comment-button">
@@ -183,4 +184,4 @@ document.getElementById("logo").onclick = genHomePage;
 document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
 
-// genHomePage();
+genHomePage();
