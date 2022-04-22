@@ -9,6 +9,10 @@
   --clr-hover: #0f7377;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #eeeeee;
@@ -20,7 +24,7 @@ body {
 
 header{
   width: 100%;
-  height: 75vh;
+  height: 80vh;
   background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75))
                     ,url(images/banner.jpeg);
   background-size: cover;
@@ -88,6 +92,41 @@ nav .logo{
 .nav-button:hover::after{
   
   width: 100%;
+}
+
+.banner-content{
+  width: 100%;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #eeeeee;
+}
+
+.banner-content h1{
+  font-size: 3.5em;
+  margin: 0;
+  color: #32e0c4;
+}
+
+.banner-content h2{
+  font-size: 2.5em;
+  margin-top: 0vh;
+  margin-bottom: 8vh;
+  color: #eeeeee;
+}
+
+.banner-content p{
+  font-size: 0.9em;
+}
+
+.banner-content .scroll-down{
+  margin-top: 10vh;
+  height: 5vh;
+}
+
+.banner-content .scroll-text{
+  font-size: smaller;
 }
 
 
