@@ -69,13 +69,21 @@ function addProfOnClick() {
   );
 }
 const genTeacherPage = async (id) => {
-  const rating = 2.5;
-  // const commentCount = 10;
   let d = await getDoc(doc(db, "professor-names", id));
 
   let querySnapshot = await getDocs(
     collection(db, "professor-names", id, "comments")
   );
+  let rating = 0;
+  if (querySnapshot.docs.length > 0) {
+    let sumRating = 0;
+    querySnapshot.docs.map((doc) => {
+      let a = doc.data();
+      sumRating += parseInt(a.score);
+    });
+    console.log(sumRating);
+    rating = (sumRating / querySnapshot.docs.length).toFixed(1);
+  }
   document.getElementById("application").innerHTML = `
   <div>
     <button id="back-button">
@@ -126,55 +134,173 @@ const genAboutPage = () => {
 };
 
 const genCommentPage = (id, professorName) => {
+  let limit = 280;
   document.getElementById("application").innerHTML = `
-  <button id="back-button">
-    Go Back
-  </button>
-  <h2>Adding comment for <span id="comment-page-prof-name">${professorName}<span></h2>
-  <div id="comment-form-div">
+  <div id="head-comment-page">
+    <h2>
+      Adding comment for
+      <span id="comment-page-prof-name">${professorName}</span>
+    </h2>
+  </div>
+  <div class="container">
     <form id="comment-form">
-      <div>
-        Score
-        <input type="number" id="score" name="score" min="1" max="5"/>
+      <div class="select-box">
+        <h2>Score</h2>
+        <div class="options-container" id="semester-option">
+          <div class="option">
+            <input type="radio" class="radio" id="1" name="score" value="1" />
+            <label for="1">1</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" id="2" name="score" value="2" />
+            <label for="2">2</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" id="3" name="score" value="3" />
+            <label for="3">3</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" id="4" name="score" value="4" />
+            <label for="4">4</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" id="5" name="score" value="5" />
+            <label for="5">5</label>
+          </div>
+        </div>
+        <div class="selected" id="selected-score">Select Score</div>
       </div>
-      <div>
-        Course
-        <input type="text" id="course" name="course" value="" />
+      <div class="number-input-box">
+        <h2>Course</h2>
+        <input
+          placeholder="Type Course"
+          type="number"
+          class="number-input"
+          id="course"
+          name="course"
+          min="2000000"
+          max="9999999"
+        />
       </div>
-      <div>
-        <label for="section">section </label>
-        <input type="number" id="section" name="section" value="" />
+      <div class="number-input-box">
+        <h2>section</h2>
+        <input
+          placeholder="Type Section"
+          type="number"
+          class="number-input"
+          id="section"
+          name="section"
+          min="1"
+          max="100"
+        />
       </div>
-      <div>
-        <label for="year">year </label>
-        <input type="number" id="year" name="year" value="" />
+      <div class="number-input-box">
+        <h2>Academic year</h2>
+        <input
+          placeholder="Type Academic Year"
+          type="number"
+          class="number-input"
+          id="year"
+          name="year"
+          min="2015"
+          max="2022"
+        />
       </div>
-      <div>
-        <label for="semester">semester</label>
-        <input type="number" id="semester" name="semester" value="" />
+      <h2>semester</h2>
+      <div class="select-box">
+        <div class="options-container">
+          <div class="option">
+            <input type="radio" class="radio" id="1" name="semester" value="1" />
+            <label for="1">1</label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" id="2" name="semester" value="2" />
+            <label for="2">2</label>
+          </div>
+        </div>
+        <div class="selected" id="selected-semester">Select semester</div>
       </div>
-      <div>
-        <label for="comment">comment</label>
-        <input type="text" id="comment" name="comment" />
+      <h2>comment</h2>
+      <div class="comment-container">
+        <textarea id="comment-area" rows="4" maxlength="200"> </textarea>
       </div>
-      <button id="submit-button">submit</button>
+      <div class="text-counter">
+        <p id="char-lenght"></p>
+      </div>
+      <div id="comment-page-button-container">
+        <button id="submit-button">submit</button>
+        <button id="back-button">Go Back</button>
+      </div>
     </form>
   </div>
+
   `;
+
+  // comment-counter
+  let commentText = document.getElementById("comment-area");
+  let charLength = document.getElementById("char-lenght");
+  charLength.textContent = 0 + "/" + limit;
+  commentText.addEventListener("input", function () {
+    var textLength = commentText.value.length;
+    charLength.textContent = textLength + "/" + limit;
+  });
+  // select-function
+  const selected = document.querySelectorAll(".selected");
+  const optionsContainer = document.querySelectorAll(".options-container");
+  const optionsList = document.querySelectorAll(".option");
+  selected[0].addEventListener("click", () => {
+    optionsContainer[0].classList.toggle("active");
+  });
+  selected[1].addEventListener("click", () => {
+    optionsContainer[1].classList.toggle("active");
+  });
+  optionsList[0].addEventListener("click", () => {
+    selected[0].innerHTML = optionsList[0].querySelector("label").innerHTML;
+    optionsContainer[0].classList.remove("active");
+  });
+  optionsList[1].addEventListener("click", () => {
+    selected[0].innerHTML = optionsList[1].querySelector("label").innerHTML;
+    optionsContainer[0].classList.remove("active");
+  });
+  optionsList[2].addEventListener("click", () => {
+    selected[0].innerHTML = optionsList[2].querySelector("label").innerHTML;
+    optionsContainer[0].classList.remove("active");
+  });
+  optionsList[3].addEventListener("click", () => {
+    selected[0].innerHTML = optionsList[3].querySelector("label").innerHTML;
+    optionsContainer[0].classList.remove("active");
+  });
+  optionsList[4].addEventListener("click", () => {
+    selected[0].innerHTML = optionsList[4].querySelector("label").innerHTML;
+    optionsContainer[0].classList.remove("active");
+  });
+  optionsList[5].addEventListener("click", () => {
+    selected[1].innerHTML = optionsList[5].querySelector("label").innerHTML;
+    optionsContainer[1].classList.remove("active");
+  });
+  optionsList[6].addEventListener("click", () => {
+    selected[1].innerHTML = optionsList[6].querySelector("label").innerHTML;
+    optionsContainer[1].classList.remove("active");
+  });
   document.getElementById("back-button").onclick = () => genTeacherPage(id);
   document.getElementById("comment-form").onsubmit = async (event) => {
     event.preventDefault();
     let inputs = document
       .getElementById("comment-form")
       .querySelectorAll("input");
-
-    var result = Array.from(inputs).reduce((r, ele) => {
+    let result = Array.from(inputs).reduce((r, ele) => {
       r[ele.name] = ele.value;
       return r;
     }, {});
 
     let docRef = collection(db, "professor-names", id, "comments");
-    await addDoc(docRef, result);
+    let data = {
+      comment: document.getElementById("comment-area").value.trim(),
+    };
+    for (const key in result) {
+      data[key] = parseInt(result[key]);
+    }
+    await addDoc(docRef, data);
     genTeacherPage(id);
   };
 };
