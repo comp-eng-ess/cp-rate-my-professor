@@ -315,9 +315,12 @@ toggleButton.addEventListener('click', () => {
 });
 
 
-document.getElementById("go-home").onclick = genHomePage;
 document.getElementById("logo").onclick = genHomePage;
+document.getElementById("go-home").onclick = genHomePage;
 document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
+document.getElementById("go-home-mobile").onclick = genHomePage;
+document.getElementById("go-contact-mobile").onclick = genContactPage;
+document.getElementById("go-about-mobile").onclick = genAboutPage;
 
 genHomePage();
