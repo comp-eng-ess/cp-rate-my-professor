@@ -49,7 +49,7 @@ async function fetchTeacherName(searchQuery) {
 
 let genHomePage = () => {
   document.getElementById("application").innerHTML = `
-      <h1 id="application-title">CP Rate My <span>Professor!</span></h1>
+      <h1 id="application-title">Search to <span>Rate!</span></h1>
       <input name="professor-name" id="professor-search" placeholder="Search professor name" />
       <datalist id="professor-options"> </datalist>
       <div id="teacher-names"></div>
@@ -306,6 +306,14 @@ const genCommentPage = (id, professorName) => {
     genTeacherPage(id);
   };
 };
+
+const toggleButton = document.getElementsByClassName('toggle-button')[0];
+const mobileNav = document.getElementsByClassName('mobile-nav')[0];
+
+toggleButton.addEventListener('click', () => {
+  mobileNav.classList.toggle('active')
+});
+
 
 document.getElementById("go-home").onclick = genHomePage;
 document.getElementById("logo").onclick = genHomePage;
