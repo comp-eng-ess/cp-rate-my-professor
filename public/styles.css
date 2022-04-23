@@ -6,6 +6,7 @@
   --clr-primary: #32e0c4;
   --clr-gray: #393e46;
   --clr-hover: #0f7377;
+  --clr-header: #8be7d7;
 }
 
 html {
@@ -243,6 +244,7 @@ nav .logo {
   justify-content: center;
   align-items: center;
   font-size: medium;
+  border: 0.1em solid #ffffff;
 
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
@@ -256,6 +258,10 @@ nav .logo {
   transition: all 250ms ease-in-out;
   backface-visibility: hidden;
   transform-style: preserve-3d; */
+}
+#professor-search:focus{
+  outline: none;
+  border: 0.1em solid var(--clr-primary);
 }
 
 #professor-search::placeholder {
@@ -324,7 +330,7 @@ nav .logo {
   display: flex;
   border-radius: 5px;
   padding: 5%;
-  /* border: 1px solid var(--clr-primary); */
+  /* border: 0.1em solid var(--clr-primary); */
   background: var(--clr-base);
   justify-content: center;
   align-items: center;
@@ -334,7 +340,7 @@ nav .logo {
 
 .professor-block:hover {
   transition: all ease-in-out 250ms;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: 0 0em 0.5em var(--clr-primary);
 }
 
 .professor-block:active {
@@ -395,8 +401,14 @@ nav .logo {
   border-radius: 0.5em;
   border: none;
   cursor: pointer;
-  background-color: var(--clr-primary);
 }
+
+#submit-button:hover,#back-button:hover,#new-comment-button:hover{
+  background-color: var(--clr-primary);
+  transform: translate(0,-0.1em);
+  transition: all ease-in-out 250ms;
+}
+
 #comment-page-button-container {
   display: flex;
   justify-content: right;
@@ -418,7 +430,7 @@ nav .logo {
 
 #comment-box {
   margin-top: 2em;
-  margin-bottom: 0;
+  margin-bottom: 1em;
   display: flex;
   flex-direction: column;
   row-gap: 1em;
@@ -587,7 +599,7 @@ input[type="number"] {
   resize: none;
   padding: 1em 2em;
   color: var(--clr-gray);
-  border: 0.15em solid var(--clr-primary);
+  border: 0.15em solid var(--clr-header);
   border-radius: 0.5em;
 }
 #comment-area:focus {
