@@ -208,7 +208,7 @@ const genCommentPage = (id, professorName) => {
         />
       </div>
       <div class="number-input-box">
-        <h2>section</h2>
+        <h2>Section</h2>
         <input
           placeholder="Section"
           type="number"
@@ -245,7 +245,7 @@ const genCommentPage = (id, professorName) => {
         </div>
         <div class="selected" id="selected-semester">Select semester</div>
       </div>
-      <h2>comment</h2>
+      <h2>Comment</h2>
       <div class="comment-container">
         <textarea id="comment-area" rows="4" maxlength="${limit}"> </textarea>
       </div>
