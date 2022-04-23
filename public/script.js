@@ -9,6 +9,7 @@ import {
   query,
   where,
   doc,
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -325,6 +326,7 @@ const genCommentPage = (id, professorName) => {
     }
     data["score"] = parseInt(selected[0].innerHTML);
     data["semester"] = parseInt(selected[1].innerHTML);
+    data["timestamp"] = serverTimestamp();
     await addDoc(docRef, data);
     genTeacherPage(id);
   };
