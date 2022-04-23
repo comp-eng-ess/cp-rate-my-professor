@@ -5,11 +5,10 @@ import {
   addDoc,
   getDoc,
   getDocs,
-  updateDoc,
   query,
-  where,
   doc,
   serverTimestamp,
+  orderBy,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -91,9 +90,10 @@ const genTeacherPage = async (id) => {
   document.getElementById("banner-content").innerHTML = "";
   let d = await getDoc(doc(db, "professor-names", id));
 
-  let querySnapshot = await getDocs(
-    collection(db, "professor-names", id, "comments")
-  );
+  let querySnapshot = await getDocs(query(
+    collection(db, "professor-names", id, "comments"),
+    orderBy("timestamp")
+  ));
   let rating = 0;
   if (querySnapshot.docs.length > 0) {
     let sumRating = 0;
@@ -122,9 +122,11 @@ const genTeacherPage = async (id) => {
   `;
   querySnapshot.docs.map((doc, idx) => {
     let a = doc.data();
+    const commentDate = a.timestamp.toDate()
     document.getElementById("comment-box").innerHTML += `
     <div class="comment">
       <div class="comment-number">Comment #${idx + 1}</div>
+      <div class="timestamp">${commentDate.toDateString() + ", " + commentDate.toLocaleTimeString() }</div>
       <div class="comment-data">
         <div class="category"><span>Score:</span> ${a.score}</div>
         <div class="category"><span>Course:</span> ${a.course}</div>
