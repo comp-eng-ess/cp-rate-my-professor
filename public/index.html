@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CP Rate My Professor</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png" />
 
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -15,7 +16,7 @@
 
   <body>
     <!-- top navigation bar -->
-    <header>
+    <header class="header" id="header">
       <nav>
         <section id="navigation-bar">
           <div id="logo">
@@ -23,9 +24,9 @@
           </div>
 
           <div class="mobile-nav">
-            <div class="nav-button" id="go-home">Home</div>
-            <div class="nav-button" id="go-contact">Contact</div>
-            <div class="nav-button" id="go-about">About</div>
+            <div class="nav-button" id="go-home-mobile">Home</div>
+            <div class="nav-button" id="go-contact-mobile">Contact</div>
+            <div class="nav-button" id="go-about-mobile">About</div>
           </div>
 
           <a href="#" class="toggle-button">
@@ -42,22 +43,7 @@
           </div>
         </section>
       </nav>
-      <div class="banner-content">
-        <h1>C.P.</h1>
-        <h2>Rate My Professor</h2>
-        <p>" This is the professor rating website</p>
-        <p>for computer engineering students at Chulalongkorn University "</p>
-        <div class="scroll-button">
-          <a href="#application">
-            <img
-              src="images/scroll_down.png"
-              alt="scroll_down"
-              class="scroll-down"
-            />
-          </a>
-          <p class="scroll-text">Scroll Down</p>
-        </div>
-      </div>
+      <div class="banner-content" id="banner-content"></div>
     </header>
 
     <!-- application -->

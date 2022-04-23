@@ -9,6 +9,7 @@ import {
   query,
   where,
   doc,
+  serverTimestamp,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -29,9 +30,9 @@ async function fetchTeacherName(searchQuery) {
   let professorsDiv = "";
   let professorOption = "";
   let filteredData = querySnapshot.docs.filter((doc) => {
-    return (doc.data().firstname + " " + doc.data().lastname).includes(
-      searchQuery
-    );
+    return (doc.data().firstname + " " + doc.data().lastname)
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
   });
   filteredData.map((doc) => {
     professorsDiv += `<div class="professor-block" id=${doc.id}>${
@@ -48,6 +49,23 @@ async function fetchTeacherName(searchQuery) {
 }
 
 let genHomePage = () => {
+  document.getElementById("header").className = "header";
+  document.getElementById("banner-content").innerHTML = `
+  <h1>C.P.</h1>
+  <h2>Rate My Professor</h2>
+  <p>" This is the professor rating website</p>
+  <p>for computer engineering students at Chulalongkorn University "</p>
+  <div class="scroll-button">
+  <a href="#application">
+    <img
+      src="images/scroll_down.png"
+      alt="scroll_down"
+      class="scroll-down"
+    />
+  </a>
+  <p class="scroll-text">Scroll Down</p>
+  </div>
+  `;
   document.getElementById("application").innerHTML = `
       <h1 id="application-title">Search to <span>Rate!</span></h1>
       <input name="professor-name" id="professor-search" placeholder="Search professor name" />
@@ -69,6 +87,8 @@ function addProfOnClick() {
   );
 }
 const genTeacherPage = async (id) => {
+  document.getElementById("header").className = "no-header";
+  document.getElementById("banner-content").innerHTML = "";
   let d = await getDoc(doc(db, "professor-names", id));
 
   let querySnapshot = await getDocs(
@@ -89,7 +109,7 @@ const genTeacherPage = async (id) => {
       <h1>${d.data().firstname + " " + d.data().lastname}</h1>
       <div>Score:</div>
       <div><span class="average-score">${rating}</span>/5</div>
-      <div>Comments : ${querySnapshot.docs.length}</div>
+      <div>Based on <strong>${querySnapshot.docs.length}</strong> comments</div>
     </div>
     <button id="new-comment-button">
       New comment
@@ -123,18 +143,24 @@ const genTeacherPage = async (id) => {
   };
 };
 const genContactPage = () => {
+  document.getElementById("header").className = "no-header";
+  document.getElementById("banner-content").innerHTML = "";
   document.getElementById("application").innerHTML = `
   <div>Placeholder for contact page</div>
   `;
 };
 const genAboutPage = () => {
+  document.getElementById("header").className = "no-header";
+  document.getElementById("banner-content").innerHTML = "";
   document.getElementById("application").innerHTML = `
   <div>Placeholder for about page</div>
   `;
 };
 
 const genCommentPage = (id, professorName) => {
-  let limit = 280;
+  let limit = 500;
+  document.getElementById("header").className = "no-header";
+  document.getElementById("banner-content").innerHTML = "";
   document.getElementById("application").innerHTML = `
   <div id="head-comment-page">
     <h2>
@@ -183,7 +209,7 @@ const genCommentPage = (id, professorName) => {
         />
       </div>
       <div class="number-input-box">
-        <h2>section</h2>
+        <h2>Section</h2>
         <input
           placeholder="Section"
           type="number"
@@ -220,16 +246,15 @@ const genCommentPage = (id, professorName) => {
         </div>
         <div class="selected" id="selected-semester">Select semester</div>
       </div>
-      <h2>comment</h2>
+      <h2>Comment</h2>
       <div class="comment-container">
-        <textarea id="comment-area" rows="4" maxlength="200"> </textarea>
+        <textarea id="comment-area" rows="4" maxlength="${limit}"> </textarea>
       </div>
       <div class="text-counter">
         <p id="char-lenght"></p>
       </div>
       <div id="comment-page-button-container">
         <button id="submit-button">Submit</button>
-        <button id="back-button">Go Back</button>
       </div>
     </form>
   </div>
@@ -282,7 +307,6 @@ const genCommentPage = (id, professorName) => {
     selected[1].innerHTML = optionsList[6].querySelector("label").innerHTML;
     optionsContainer[1].classList.remove("active");
   });
-  document.getElementById("back-button").onclick = () => genTeacherPage(id);
   document.getElementById("comment-form").onsubmit = async (event) => {
     event.preventDefault();
     let inputs = document
@@ -302,22 +326,25 @@ const genCommentPage = (id, professorName) => {
     }
     data["score"] = parseInt(selected[0].innerHTML);
     data["semester"] = parseInt(selected[1].innerHTML);
+    data["timestamp"] = serverTimestamp();
     await addDoc(docRef, data);
     genTeacherPage(id);
   };
 };
 
-const toggleButton = document.getElementsByClassName('toggle-button')[0];
-const mobileNav = document.getElementsByClassName('mobile-nav')[0];
+const toggleButton = document.getElementsByClassName("toggle-button")[0];
+const mobileNav = document.getElementsByClassName("mobile-nav")[0];
 
-toggleButton.addEventListener('click', () => {
-  mobileNav.classList.toggle('active')
+toggleButton.addEventListener("click", () => {
+  mobileNav.classList.toggle("active");
 });
 
-
-document.getElementById("go-home").onclick = genHomePage;
 document.getElementById("logo").onclick = genHomePage;
+document.getElementById("go-home").onclick = genHomePage;
 document.getElementById("go-contact").onclick = genContactPage;
 document.getElementById("go-about").onclick = genAboutPage;
+document.getElementById("go-home-mobile").onclick = genHomePage;
+document.getElementById("go-contact-mobile").onclick = genContactPage;
+document.getElementById("go-about-mobile").onclick = genAboutPage;
 
 genHomePage();
