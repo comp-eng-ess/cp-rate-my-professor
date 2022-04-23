@@ -2,7 +2,7 @@
 
 
 :root {
-  --clr-background: #eeeeee;
+  --clr-background: #eff2f5;
   --clr-base: #ffffff;
   --clr-primary: #32e0c4;
   --clr-gray: #393e46;
@@ -15,7 +15,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #eeeeee;
+  background-color: #eff2f5;
   margin: 0;
   padding: 0;
 }
@@ -26,7 +26,7 @@ header{
   width: 100%;
   height: 80vh;
   background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75))
-                    ,url(images/banner2.jpeg);
+                    ,url(images/banner.jpeg);
   background-size: cover;
   background-position: center;
 }
@@ -69,7 +69,7 @@ nav .logo{
 }
 .mobile-nav-button{
   display: none;
-  color: #eeeeee;
+  color: #ffffff;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -78,7 +78,7 @@ nav .logo{
 }
 
 #nav-buttons {
-  color: #eeeeee;
+  color: #ffffff;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -126,7 +126,7 @@ nav .logo{
 .toggle-button .bar{
   height: 1px;
   width: 100%;
-  background-color: #eeeeee;
+  background-color: #ffffff;
   border-radius: 10px;
 }
 
@@ -151,7 +151,7 @@ nav .logo{
     flex-direction: column;
   }
   .mobile-nav .nav-button{
-    color: #eeeeee;
+    color: #ffffff;
     transition: 250ms;
     
     margin: 5vh 0;
@@ -181,13 +181,13 @@ nav .logo{
   top: 45%;
   transform: translateY(-50%);
   text-align: center;
-  color: #eeeeee;
+  color: #ffffff;
 }
 
 .banner-content h1{
   font-size: 4em;
   margin: 0;
-  color: #eeeeee;
+  color: #ffffff;
 }
 
 .banner-content h2{
