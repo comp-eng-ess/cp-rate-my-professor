@@ -108,7 +108,7 @@ const genTeacherPage = async (id) => {
       <h1>${d.data().firstname + " " + d.data().lastname}</h1>
       <div>Score:</div>
       <div><span class="average-score">${rating}</span>/5</div>
-      <div>Comments : ${querySnapshot.docs.length}</div>
+      <div>Based on <strong>${querySnapshot.docs.length}</strong> comments</div>
     </div>
     <button id="new-comment-button">
       New comment
