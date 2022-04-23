@@ -29,8 +29,8 @@ async function fetchTeacherName(searchQuery) {
   let professorsDiv = "";
   let professorOption = "";
   let filteredData = querySnapshot.docs.filter((doc) => {
-    return (doc.data().firstname + " " + doc.data().lastname).includes(
-      searchQuery
+    return (doc.data().firstname + " " + doc.data().lastname).toLowerCase().includes(
+      searchQuery.toLowerCase()
     );
   });
   filteredData.map((doc) => {
