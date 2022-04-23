@@ -344,8 +344,43 @@ nav .logo{
 }
 
 /* Section for teacher page */
-#back-button {
-  margin-top: 2%;
+
+#back-button,
+#new-comment-button {
+  margin-top: 2em;
+  background: #ebecf0;
+  border: none;
+  padding: 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 0.125em 0.15em rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.comment-number {
+  font-weight: bolder;
+  font-size: 1.25em;
+}
+
+.comment-data {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+.category {
+  padding-right: 1em;
+}
+
+.category span {
+  font-weight: bold;
+}
+
+.comment-content {
+  margin-top: 0.5em;
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .comment-number {
+    font-size: 1em;
+  }
 }
 
 /* Section for new comment page */
@@ -355,23 +390,214 @@ nav .logo{
   padding: 5%;
 }
 
-#submit-button {
+#submit-button,
+#back-button {
   margin-top: 1em;
+  border-radius: 0.5em;
+  border: none;
+  cursor: pointer;
+  background-color: var(--clr-primary);
+}
+#comment-page-button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#back-button {
+  position: left;
 }
 
 #comment-page-prof-name {
   font-weight: bold;
   color: #0f7377;
 }
+#head-comment-page {
+  margin-bottom: 0;
+  margin-top: 3em;
+  text-align: center;
+}
 
 #comment-box {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 2em;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   row-gap: 1em;
 }
 
+h1 {
+  color: #dd5c8e;
+}
+
+.average-score {
+  color: #dd5c8e;
+  font-weight: bolder;
+  font-size: 5em;
+}
 .comment {
-  border: 1px solid red;
+  color: #2f3640;
+  padding: 2em;
+  border-radius: 0.5em;
+  background: #ebecf0;
+  box-shadow: 0 0.75em 1.2em rgba(0, 0, 0, 0.25);
+}
+
+.container {
+  padding: 2em;
+}
+
+.select-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-box .options-container {
+  background: var(--clr-header);
+  color: var(--clr-gray);
+  max-height: 0;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  border-radius: 0.5em;
+  overflow: hidden;
+
+  order: 1;
+}
+
+.selected {
+  background: var(--clr-header);
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+  color: var(--clr-gray);
+  position: relative;
+
+  order: 0;
+}
+
+.selected::after {
+  content: "";
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 100%;
+  width: 2em;
+  right: 0.625;
+  top: 0.3125;
+
+  transition: all 0.4s;
+}
+
+.select-box .options-container.active {
+  max-height: 8em;
+  opacity: 1;
+  overflow-y: scroll;
+  box-shadow: 0 0 0.5em var(--clr-primary);
+}
+
+.select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+  top: -0.375em;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+  width: 0.5em;
+  background: var(--clr-primary);
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background: var(--clr-hover);
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.select-box .option,
+.selected {
+  cursor: pointer;
+}
+
+.select-box .option:hover {
+  background: var(--clr-primary);
+}
+.select-box label {
+  cursor: pointer;
+}
+
+.select-box .option .radio {
+  display: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.number-input,
+.option,
+.selected,
+#submit-button,
+#new-comment-button,
+#back-button {
+  font-weight: bold;
+  font-family: "Poppins";
+  font-size: 1em;
+  padding: 0.75em 1.5em;
+  background: var(--clr-header);
+  color: var(--clr-gray);
+}
+.number-input {
+  background: var(--clr-header);
+  border-radius: 0.5em;
+  margin-bottom: 0.5em;
+  border: none;
+  cursor: pointer;
+}
+.number-input:focus {
+  outline: none;
+  box-shadow: 0 0 0.5em var(--clr-primary);
+}
+.number-input::placeholder {
+  color: var(--clr-gray);
+}
+
+@media (max-width: 480px) {
+  .number-input::placeholder {
+    text-align: center;
+  }
+}
+.number-input-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.comment-container {
+  width: 100%;
+  display: flex;
+}
+#comment-area {
+  font-family: "Poppins";
+  display: block;
+  width: 100%;
+  resize: none;
+  padding: 1em 2em;
+  color: var(--clr-gray);
+  border: 0.15em solid var(--clr-primary);
+  border-radius: 0.5em;
+}
+#comment-area:focus {
+  box-shadow: 0 0 0.5em var(--clr-primary);
+  outline: #eceff1;
+}
+#char-lenght {
+  font-family: "Poppins";
+  font-size: 0.75em;
+  text-align: right;
+  color: #2f3640;
 }
