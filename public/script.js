@@ -120,7 +120,7 @@ const genTeacherPage = async (id) => {
     </button>
   </div>
   `;
-  querySnapshot.docs.map((doc, idx) => {
+  querySnapshot.docs.reverse().map((doc, idx) => {
     let a = doc.data();
     const commentDate = a.timestamp.toDate()
     document.getElementById("comment-box").innerHTML += `
