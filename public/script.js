@@ -112,7 +112,7 @@ const genTeacherPage = async (id) => {
       <div>Based on <strong>${querySnapshot.docs.length}</strong> comments</div>
     </div>
     <button id="new-comment-button">
-      New comment
+      New Comment
     </button>
     <div id="comment-box">
     </div>
@@ -246,7 +246,7 @@ const genCommentPage = (id, professorName) => {
             <label for="2">2</label>
           </div>
         </div>
-        <div class="selected" id="selected-semester">Select semester</div>
+        <div class="selected" id="selected-semester">Select Semester</div>
       </div>
       <h2>Comment</h2>
       <div class="comment-container">

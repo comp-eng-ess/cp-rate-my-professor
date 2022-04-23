@@ -6,6 +6,7 @@
   --clr-primary: #32e0c4;
   --clr-gray: #393e46;
   --clr-hover: #0f7377;
+  --clr-header: #8be7d7;
 }
 
 html {
@@ -395,7 +396,6 @@ nav .logo {
   border-radius: 0.5em;
   border: none;
   cursor: pointer;
-  background-color: var(--clr-primary);
 }
 #comment-page-button-container {
   display: flex;
@@ -418,7 +418,7 @@ nav .logo {
 
 #comment-box {
   margin-top: 2em;
-  margin-bottom: 0;
+  margin-bottom: 1em;
   display: flex;
   flex-direction: column;
   row-gap: 1em;
@@ -587,7 +587,7 @@ input[type="number"] {
   resize: none;
   padding: 1em 2em;
   color: var(--clr-gray);
-  border: 0.15em solid var(--clr-primary);
+  border: 0.15em solid var(--clr-header);
   border-radius: 0.5em;
 }
 #comment-area:focus {
