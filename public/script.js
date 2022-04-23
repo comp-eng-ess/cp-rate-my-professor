@@ -157,7 +157,7 @@ const genAboutPage = () => {
 };
 
 const genCommentPage = (id, professorName) => {
-  let limit = 280;
+  let limit = 500;
   document.getElementById("header").className = "no-header";
   document.getElementById("banner-content").innerHTML = "";
   document.getElementById("application").innerHTML = `
@@ -247,7 +247,7 @@ const genCommentPage = (id, professorName) => {
       </div>
       <h2>comment</h2>
       <div class="comment-container">
-        <textarea id="comment-area" rows="4" maxlength="200"> </textarea>
+        <textarea id="comment-area" rows="4" maxlength="${limit}"> </textarea>
       </div>
       <div class="text-counter">
         <p id="char-lenght"></p>
