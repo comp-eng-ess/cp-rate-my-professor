@@ -106,7 +106,7 @@ const genTeacherPage = async (id) => {
   document.getElementById("application").innerHTML = `
   <div>
     <div>
-      <h1>${d.data().firstname + " " + d.data().lastname}</h1>
+      <h1 id="firstname-lastname">${d.data().firstname + " " + d.data().lastname}</h1>
       <div>Score:</div>
       <div><span class="average-score">${rating}</span>/5</div>
       <div>Based on <strong>${querySnapshot.docs.length}</strong> comments</div>
@@ -148,14 +148,38 @@ const genContactPage = () => {
   document.getElementById("header").className = "no-header";
   document.getElementById("banner-content").innerHTML = "";
   document.getElementById("application").innerHTML = `
-  <div>Placeholder for contact page</div>
+  <h1 id = "contact-title">Reach Out!</h1>
+  <div class = "inform-box">
+    <h2 class = "inform-name">firstname lastname</h2>
+      <p = "inform-stu-id">Student ID: 6666666666</p>
+  </div>
+  <div class = "inform-box">
+    <h2 class = "inform-name">firstname lastname</h2>
+      <p = "inform-stu-id">Student ID: 6666666666</p>
+  </div>
+  <div class = "inform-box">
+    <h2 class = "inform-name">firstname lastname</h2>
+      <p = "inform-stu-id">Student ID: 6666666666</p>
+  </div>
+  <div class = "inform-box">
+    <h2 class = "inform-name">firstname lastname</h2>
+      <p = "inform-stu-id">Student ID: 6666666666</p>
+  </div>
   `;
 };
 const genAboutPage = () => {
   document.getElementById("header").className = "no-header";
   document.getElementById("banner-content").innerHTML = "";
   document.getElementById("application").innerHTML = `
-  <div>Placeholder for about page</div>
+  <h1 id = "about-title">What We Do</h1>
+  <img id = "informative_about_page" src = "images/informative_about_page.png" alt=""/>
+  <p>CP Rate Professor is ... Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris a diam maecenas sed enim ut. 
+  Tincidunt eget nullam non nisi est sit amet facilisis. Posuere ac ut consequat semper viverra nam libero justo. 
+  Tempus imperdiet nulla malesuada pellentesque elit eget. Tincidunt ornare massa eget egestas purus viverra accumsan. 
+  Massa ultricies mi quis hendrerit. Est ultricies integer quis auctor. 
+  Venenatis urna cursus eget nunc scelerisque viverra mauris in. Amet nulla facilisi morbi tempus iaculis urna id
+   volutpat lacus. Mauris nunc congue nisi vitae. Placerat orci nulla pellentesque dignissim enim sit.</p>
   `;
 };
 
@@ -165,7 +189,7 @@ const genCommentPage = (id, professorName) => {
   document.getElementById("banner-content").innerHTML = "";
   document.getElementById("application").innerHTML = `
   <div id="head-comment-page">
-    <h2>
+    <h2 id="comment-title">
       Adding comment for
       <span id="comment-page-prof-name">${professorName}</span>
     </h2>
@@ -234,7 +258,7 @@ const genCommentPage = (id, professorName) => {
           max="2022"
         />
       </div>
-      <h2>semester</h2>
+      <h2>Semester</h2>
       <div class="select-box">
         <div class="options-container">
           <div class="option">
