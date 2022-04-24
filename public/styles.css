@@ -207,7 +207,7 @@ nav .logo {
 }
 
 .banner-content .scroll-down {
-  margin-top: 5vh;
+  margin-top: 10vh;
   height: 5vh;
 }
 
@@ -256,11 +256,11 @@ nav .logo {
   border-radius: 25px;
   text-indent: 3%;
   font-size: medium;
-  border: 0.1em solid rgb(210, 210, 210);
+  border: 0;
+  outline: 0.1em solid rgb(210, 210, 210);
 }
 #professor-search:focus{
-  outline: none;
-  border: 0.1em solid #32e0c4;
+  outline: 0.1em solid #32e0c4;
 }
 
 #professor-search::placeholder {
@@ -409,9 +409,10 @@ nav .logo {
 }
 
 #submit-button:hover,#back-button:hover,#new-comment-button:hover{
-  background-color: var(--clr-primary);
+  background-color: var(--clr-hover);
   transform: translate(0,-0.1em);
   transition: all ease-in-out 250ms;
+  color: #ffffff;
 }
 
 #comment-page-button-container {
@@ -441,12 +442,16 @@ nav .logo {
   row-gap: 1em;
 }
 
+#comment-title{
+  font-size: 2em;
+}
+
 #application #firstname-lastname {
   font-size: 3em;
   color: #000000;
 
   background-image: linear-gradient(#0f7377,#0f7377);
-  background-position: bottom left; /*Adjust the background-position to move the line*/
+  background-position: bottom left;
   background-size: 7% 4px;
   background-repeat: no-repeat;
   padding-bottom: 0.6em;
@@ -457,6 +462,69 @@ nav .logo {
     background-position: bottom center;
     background-size: 20% 4px;
   }
+}
+#contact-bg{
+  background-color: #000000;
+}
+
+#contact-title{
+  font-size: 3em;
+  color: #000000;
+
+  background-image: linear-gradient(#0f7377,#0f7377);
+  background-position: bottom left;
+  background-size: 7% 4px;
+  background-repeat: no-repeat;
+  padding-bottom: 0.6em;
+}
+
+@media (max-width: 480px){
+  #contact-title{
+    background-position: bottom center;
+    background-size: 20% 4px;
+  }
+}
+
+.inform-box{
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 2vh 10vh;
+  margin:5vh 2vh;
+  border-left: 5px solid #0f7377;
+}
+
+#informative_about_page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 100%;
+  height: auto;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  
+}
+
+#about-title{
+  font-size: 3em;
+  color: #000000;
+
+  background-image: linear-gradient(#0f7377,#0f7377);
+  background-position: bottom left;
+  background-size: 7% 4px;
+  background-repeat: no-repeat;
+  padding-bottom: 0.6em;
+}
+
+@media (max-width: 480px){
+  #about-title{
+    background-position: bottom center;
+    background-size: 20% 4px;
+  }
+}
+
+.inform-box:first-of-type{
+  margin-top: 12vh;
 }
 
 .average-score {
@@ -524,7 +592,7 @@ nav .logo {
   max-height: 8em;
   opacity: 1;
   overflow-y: scroll;
-  box-shadow: 0 0 0.5em var(--clr-primary);
+  /* box-shadow: 0 0 0.5em var(--clr-primary); */
 }
 
 .select-box .options-container.active + .selected::after {
@@ -581,24 +649,24 @@ input[type="number"] {
   font-family: "Poppins";
   font-size: 1em;
   padding: 0.75em 1.5em;
-  background: var(--clr-header);
+  background: var(--clr-primary);
   color: var(--clr-gray);
 }
 
-.selected, .number-input{
+.selected{
   background-color: #ffffff;
 }
 
 .number-input {
-  background: var(--clr-header);
+  background: #ffffff;
   border-radius: 0.5em;
   margin-bottom: 0.5em;
   border: none;
   cursor: pointer;
 }
 .number-input:focus {
-  outline: none;
-  box-shadow: 0 0 0.5em var(--clr-primary);
+  outline: 0.15em solid #32e0c4;
+  /* box-shadow: 0 0 0.5em var(--clr-primary); */
 }
 .number-input::placeholder {
   color: var(--clr-gray);
@@ -625,12 +693,12 @@ input[type="number"] {
   resize: none;
   padding: 1em 2em;
   color: var(--clr-gray);
-  border: 0.15em solid var(--clr-header);
+  border:none;
   border-radius: 0.5em;
 }
 #comment-area:focus {
-  box-shadow: 0 0 0.5em var(--clr-primary);
-  outline: #eceff1;
+  /* box-shadow: 0 0 0.5em var(--clr-primary); */
+  outline: 0.15em solid #32e0c4;
 }
 #char-lenght {
   font-family: "Poppins";
