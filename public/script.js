@@ -106,7 +106,7 @@ const genTeacherPage = async (id) => {
   document.getElementById("application").innerHTML = `
   <div>
     <div>
-      <h1>${d.data().firstname + " " + d.data().lastname}</h1>
+      <h1 id="firstname-lastname">${d.data().firstname + " " + d.data().lastname}</h1>
       <div>Score:</div>
       <div><span class="average-score">${rating}</span>/5</div>
       <div>Based on <strong>${querySnapshot.docs.length}</strong> comments</div>
