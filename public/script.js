@@ -176,13 +176,24 @@ const genAboutPage = () => {
   document.getElementById("application").innerHTML = `
   <h1 id = "about-title">What We Do</h1>
   <img id = "informative_about_page" src = "images/informative_about_page.png" alt=""/>
-  <p>CP Rate Professor is ... Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris a diam maecenas sed enim ut. 
-  Tincidunt eget nullam non nisi est sit amet facilisis. Posuere ac ut consequat semper viverra nam libero justo. 
-  Tempus imperdiet nulla malesuada pellentesque elit eget. Tincidunt ornare massa eget egestas purus viverra accumsan. 
-  Massa ultricies mi quis hendrerit. Est ultricies integer quis auctor. 
-  Venenatis urna cursus eget nunc scelerisque viverra mauris in. Amet nulla facilisi morbi tempus iaculis urna id
-   volutpat lacus. Mauris nunc congue nisi vitae. Placerat orci nulla pellentesque dignissim enim sit.</p>
+  <p>
+  Online Learning can be tough. Not getting to see your friends, your teacher and your senior can take a toll on you.
+  At Computer Engineering, Chulalongkorn University getting to see your senior can be very beneficial.
+  The senior can gives you many information regarding which course to take, how are the professor and which section to choose.
+  </p>
+  <p>
+  Online Learning takes this away from us. We can not get advice efficiently.
+  Even though there are a system for rating professor created and run by the university, the data is not public for the students to see.
+  We can't see what people think of the course or the teacher.
+  We can't prove that the comment given to the university is anonymous, when we comment we have to login to the system and that can be scary for some students.
+  </p>
+  <p>
+  CP Rate Professor hopes to solve some of that concern.
+  The platform provides an anonymous comment and rating system for professor at Computer Engineering, Chulalongkorn University.
+  We do not collect data expect from the comment and rating you've given us. All of the source code is open-source and available for you to see an audit.
+  Comments can't be deleted or edited. We are fully transparent. When you are commenting and rating, we hope that you are honest with your comment.
+  We hope that these information can help you choose the course to take or the section to choose, so that a bit of stress can be ease off from online learning.
+  </p>
   `;
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
