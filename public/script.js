@@ -75,6 +75,7 @@ let genHomePage = () => {
     fetchTeacherName(document.getElementById("professor-search").value);
   fetchTeacherName("");
   addProfOnClick();
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
 
 function addProfOnClick() {
@@ -143,6 +144,7 @@ const genTeacherPage = async (id) => {
   document.getElementById("new-comment-button").onclick = () => {
     genCommentPage(id, d.data().firstname + " " + d.data().lastname);
   };
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
 const genContactPage = () => {
   document.getElementById("header").className = "no-header";
@@ -166,6 +168,7 @@ const genContactPage = () => {
       <p = "inform-stu-id">Student ID: 6666666666</p>
   </div>
   `;
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
 const genAboutPage = () => {
   document.getElementById("header").className = "no-header";
@@ -181,6 +184,7 @@ const genAboutPage = () => {
   Venenatis urna cursus eget nunc scelerisque viverra mauris in. Amet nulla facilisi morbi tempus iaculis urna id
    volutpat lacus. Mauris nunc congue nisi vitae. Placerat orci nulla pellentesque dignissim enim sit.</p>
   `;
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
 
 const genCommentPage = (id, professorName) => {
@@ -356,6 +360,7 @@ const genCommentPage = (id, professorName) => {
     await addDoc(docRef, data);
     genTeacherPage(id);
   };
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 };
 
 const toggleButton = document.getElementsByClassName("toggle-button")[0];
