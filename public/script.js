@@ -91,10 +91,12 @@ const genTeacherPage = async (id) => {
   document.getElementById("banner-content").innerHTML = "";
   let d = await getDoc(doc(db, "professor-names", id));
 
-  let querySnapshot = await getDocs(query(
-    collection(db, "professor-names", id, "comments"),
-    orderBy("timestamp")
-  ));
+  let querySnapshot = await getDocs(
+    query(
+      collection(db, "professor-names", id, "comments"),
+      orderBy("timestamp")
+    )
+  );
   let rating = 0;
   if (querySnapshot.docs.length > 0) {
     let sumRating = 0;
@@ -107,7 +109,9 @@ const genTeacherPage = async (id) => {
   document.getElementById("application").innerHTML = `
   <div>
     <div>
-      <h1 id="firstname-lastname">${d.data().firstname + " " + d.data().lastname}</h1>
+      <h1 id="firstname-lastname">${
+        d.data().firstname + " " + d.data().lastname
+      }</h1>
       <div>Score:</div>
       <div><span class="average-score">${rating}</span>/5</div>
       <div>Based on <strong>${querySnapshot.docs.length}</strong> comments</div>
@@ -123,11 +127,13 @@ const genTeacherPage = async (id) => {
   `;
   querySnapshot.docs.reverse().map((doc, idx) => {
     let a = doc.data();
-    const commentDate = a.timestamp.toDate()
+    const commentDate = a.timestamp.toDate();
     document.getElementById("comment-box").innerHTML += `
     <div class="comment">
       <div class="comment-number">Comment #${idx + 1}</div>
-      <div class="timestamp">${commentDate.toDateString() + ", " + commentDate.toLocaleTimeString() }</div>
+      <div class="timestamp">${
+        commentDate.toDateString() + ", " + commentDate.toLocaleTimeString()
+      }</div>
       <div class="comment-data">
         <div class="category"><span>Score:</span> ${a.score}</div>
         <div class="category"><span>Course:</span> ${a.course}</div>
@@ -152,20 +158,20 @@ const genContactPage = () => {
   document.getElementById("application").innerHTML = `
   <h1 id = "contact-title">Reach Out!</h1>
   <div class = "inform-box">
-    <h2 class = "inform-name">firstname lastname</h2>
-      <p = "inform-stu-id">Student ID: 6666666666</p>
+    <h2 class = "inform-name">Nopparuj Poonsubanan</h2>
+      <p = "inform-stu-id">Student ID: 6330261921</p>
   </div>
   <div class = "inform-box">
-    <h2 class = "inform-name">firstname lastname</h2>
-      <p = "inform-stu-id">Student ID: 6666666666</p>
+    <h2 class = "inform-name">Noppakorn Jiravaranun</h2>
+      <p = "inform-stu-id">Student ID: 6330258021</p>
   </div>
   <div class = "inform-box">
-    <h2 class = "inform-name">firstname lastname</h2>
-      <p = "inform-stu-id">Student ID: 6666666666</p>
+    <h2 class = "inform-name">Naphat Darunaitorn</h2>
+      <p = "inform-stu-id">Student ID: 6230136021</p>
   </div>
   <div class = "inform-box">
-    <h2 class = "inform-name">firstname lastname</h2>
-      <p = "inform-stu-id">Student ID: 6666666666</p>
+    <h2 class = "inform-name">Ittipat Yodprasit</h2>
+      <p = "inform-stu-id">Student ID: 6431349821</p>
   </div>
   `;
   document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -299,7 +305,6 @@ const genCommentPage = (id, professorName) => {
       </div>
     </form>
   </div>
-
   `;
 
   // comment-counter
@@ -314,39 +319,54 @@ const genCommentPage = (id, professorName) => {
   const selected = document.querySelectorAll(".selected");
   const optionsContainer = document.querySelectorAll(".options-container");
   const optionsList = document.querySelectorAll(".option");
+  const scoreBox = document.getElementById("selected-score");
+  const semesterBox = document.getElementById("selected-semester");
   selected[0].addEventListener("click", () => {
     optionsContainer[0].classList.toggle("active");
+    if (optionsContainer[0].classList.contains("active"))
+      scoreBox.style.outline = "0.15em solid var(--clr-primary)";
+    else scoreBox.style.outline = "";
   });
   selected[1].addEventListener("click", () => {
     optionsContainer[1].classList.toggle("active");
+    if (optionsContainer[1].classList.contains("active"))
+      semesterBox.style.outline = "0.15em solid var(--clr-primary)";
+    else semesterBox.style.outline = "";
   });
   optionsList[0].addEventListener("click", () => {
     selected[0].innerHTML = optionsList[0].querySelector("label").innerHTML;
     optionsContainer[0].classList.remove("active");
+    scoreBox.style.outline = "";
   });
   optionsList[1].addEventListener("click", () => {
     selected[0].innerHTML = optionsList[1].querySelector("label").innerHTML;
     optionsContainer[0].classList.remove("active");
+    scoreBox.style.outline = "";
   });
   optionsList[2].addEventListener("click", () => {
     selected[0].innerHTML = optionsList[2].querySelector("label").innerHTML;
     optionsContainer[0].classList.remove("active");
+    scoreBox.style.outline = "";
   });
   optionsList[3].addEventListener("click", () => {
     selected[0].innerHTML = optionsList[3].querySelector("label").innerHTML;
     optionsContainer[0].classList.remove("active");
+    scoreBox.style.outline = "";
   });
   optionsList[4].addEventListener("click", () => {
     selected[0].innerHTML = optionsList[4].querySelector("label").innerHTML;
     optionsContainer[0].classList.remove("active");
+    scoreBox.style.outline = "";
   });
   optionsList[5].addEventListener("click", () => {
     selected[1].innerHTML = optionsList[5].querySelector("label").innerHTML;
     optionsContainer[1].classList.remove("active");
+    semesterBox.style.outline = "";
   });
   optionsList[6].addEventListener("click", () => {
     selected[1].innerHTML = optionsList[6].querySelector("label").innerHTML;
     optionsContainer[1].classList.remove("active");
+    semesterBox.style.outline = "";
   });
   document.getElementById("comment-form").onsubmit = async (event) => {
     event.preventDefault();
