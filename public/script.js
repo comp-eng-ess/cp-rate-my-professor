@@ -25,7 +25,8 @@ const db = getFirestore(app);
 
 async function fetchTeacherName(searchQuery) {
   const teachersRef = collection(db, "professor-names");
-  const querySnapshot = await getDocs(teachersRef);
+  const q = query(teachersRef, orderBy("firstname"), orderBy("lastname"));
+  const querySnapshot = await getDocs(q);
   let professorsDiv = "";
   let professorOption = "";
   let filteredData = querySnapshot.docs.filter((doc) => {
