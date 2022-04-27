@@ -371,7 +371,6 @@ nav .logo {
 #back-button,
 #new-comment-button {
   margin-top: 2em;
-  background: #ebecf0;
   border: none;
   padding: 1em;
   border-radius: 0.5em;
@@ -663,7 +662,7 @@ input[type="number"] {
   font-family: "Poppins";
   font-size: 1em;
   padding: 0.75em 1.5em;
-  background: #ffffff;
+  background: var(--clr-primary);
   color: var(--clr-gray);
 }
 
