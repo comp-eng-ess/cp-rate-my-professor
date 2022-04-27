@@ -585,9 +585,9 @@ nav .logo {
 }
 
 .selected {
-  background: var(--clr-header);
   border-radius: 0.5em;
   margin-bottom: 0.5em;
+  background: #ffffff;
   color: var(--clr-gray);
   position: relative;
 
@@ -662,8 +662,13 @@ input[type="number"] {
   font-family: "Poppins";
   font-size: 1em;
   padding: 0.75em 1.5em;
-  background: var(--clr-primary);
   color: var(--clr-gray);
+}
+
+#submit-button,
+#new-comment-button,
+#back-button {
+  background: var(--clr-primary);
 }
 
 .number-input {
